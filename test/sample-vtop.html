@@ -1,0 +1,2983 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)https://vtop.vitbhopal.ac.in/vtop/content -->
+<html style="height: 100%;"><head id="configHead"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+
+        
+        <!--<base href="https://vtop.vitbhopal.ac.in/vtop/">--><base href=".">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>VIT Bhopal - VTOP</title>
+        <meta name="description" content="">
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        
+        <meta name="description" content="vtop">
+        <meta name="robots" content="NOODP,NOYDIR">
+        <meta name="keywords" content=" vtop ">
+        <meta name="robots" content="index, follow">
+        <link rel="icon" type="image/png" href="https://vtop.vitbhopal.ac.in/vtop/assets/img/favicon.ico">
+        <meta http-equiv="cache-control" content="max-age=0">
+        <meta http-equiv="cache-control" content="no-cache">
+        <meta http-equiv="expires" content="0">
+        <meta http-equiv="X-UA-Compatible" content="IE-Edge">
+    
+    
+
+        <link rel="stylesheet" type="text/css" href="./VIT Bhopal - VTOP Pyhton Date of lecture_files/1">
+        <link rel="stylesheet" type="text/css" href="./VIT Bhopal - VTOP Pyhton Date of lecture_files/bootstrap3-iso.css">
+        <link rel="stylesheet" type="text/css" href="./VIT Bhopal - VTOP Pyhton Date of lecture_files/1(1)">
+        <link rel="stylesheet" type="text/css" href="./VIT Bhopal - VTOP Pyhton Date of lecture_files/2">
+        <link rel="stylesheet" type="text/css" href="./VIT Bhopal - VTOP Pyhton Date of lecture_files/1(2)">
+        <link rel="stylesheet" type="text/css" href="./VIT Bhopal - VTOP Pyhton Date of lecture_files/2(1)">
+        <link rel="stylesheet" type="text/css" href="./VIT Bhopal - VTOP Pyhton Date of lecture_files/menu.css">
+        <link rel="stylesheet" type="text/css" href="./VIT Bhopal - VTOP Pyhton Date of lecture_files/scrollableTable.css">
+        <link rel="stylesheet" type="text/css" href="./VIT Bhopal - VTOP Pyhton Date of lecture_files/VTop.css">
+        <link rel="stylesheet" type="text/css" href="./VIT Bhopal - VTOP Pyhton Date of lecture_files/CustomDatePicker.css">
+        <link rel="stylesheet" type="text/css" href="./VIT Bhopal - VTOP Pyhton Date of lecture_files/CustomDateTimePicker.css">
+        <link rel="stylesheet" type="text/css" href="./VIT Bhopal - VTOP Pyhton Date of lecture_files/CustomTimePicker.css">
+        <link rel="stylesheet" type="text/css" href="./VIT Bhopal - VTOP Pyhton Date of lecture_files/CustomMonthYearPicker.css">
+        <link rel="stylesheet" type="text/css" href="./VIT Bhopal - VTOP Pyhton Date of lecture_files/AdminLteCompatibility.css">
+       
+
+        <script type="text/javascript" src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/1(3)"></script>
+        <script type="text/javascript" src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/Async.js.download"></script>
+        
+
+    
+<link type="text/css" rel="stylesheet" charset="UTF-8" href="./VIT Bhopal - VTOP Pyhton Date of lecture_files/m=el_main_css"><script type="text/javascript" charset="UTF-8" src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/m=el_main"></script><link type="text/css" rel="stylesheet" charset="UTF-8" href="./VIT Bhopal - VTOP Pyhton Date of lecture_files/m=el_main_css"><script type="text/javascript" charset="UTF-8" src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/m=el_main"></script></head>
+
+<body class="overflow-auto" style="padding-top: 51px; position: relative; min-height: 100%; top: 0px;">
+
+<input type="hidden" name="authorizedIDX" id="authorizedIDX" value="100243">
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 trim vh-100 vw-100 " id="page_outline">
+                <div id="page-holder">
+
+                    
+
+                    
+
+
+                        
+        <script>
+            /*<![CDATA[*/
+
+            var maxIdleTime = 20 * 60 * 1000; // Max idle time in milliseconds (20 minutes)
+            var idleTimer; // Timer to track idle time
+            var countdownInterval; // Interval to update countdown display
+            var countdownDisplay; // Element to display countdown
+            
+            function resetIdleTimer() {
+                clearTimeout(idleTimer); // Reset timer
+                idleTimer = setTimeout(showTimeoutAlert, maxIdleTime); // Set new timer
+                startCountdown(); // Start or restart countdown
+            }
+        
+
+            function showTimeoutAlert() {
+                alert("Your session has expired due to inactivity. Please log in again."); // Show alert
+                // Redirect to login page or perform any other action
+                window.location.href = "/vtop/login";
+            }
+            
+            
+
+            function showTimeoutAlert() {
+                alert("Your session has expired due to inactivity. Please log in again.");
+                window.location.href = "/vtop/login";
+              return false ;
+            }
+
+            
+            function resetTimerOnAction() {
+                // Reset timer on any controller action (AJAX request)
+                resetIdleTimer();
+            }
+            
+            function startCountdown() {
+                clearInterval(countdownInterval); // Clear any existing countdown interval
+                var startTime = Date.now(); // Get the current time
+                countdownInterval = setInterval(function() {
+                    var currentTime = Date.now(); // Get the current time in each interval iteration
+                    var elapsedTime = currentTime - startTime; // Calculate elapsed time
+                    var remainingTime = maxIdleTime - elapsedTime; // Calculate remaining time
+                    if (remainingTime <= 0) {
+                        clearInterval(countdownInterval); // Stop countdown when time's up
+                    } else {
+                        updateCountdownDisplay(remainingTime); // Update countdown display with remaining time
+                    }
+                }, 100); // Update countdown every 100 milliseconds
+            }
+            
+            function updateCountdownDisplay(time) {
+                var minutes = Math.floor(time / (60 * 1000));
+                var seconds = Math.floor((time % (60 * 1000)) / 1000);
+                countdownDisplay.innerHTML = "<span style='font-weight: bold; color: white; font-size: 13px;'>Session Time :  </span><span style='font-weight: bold; color: white; font-size: 13px;'>" + minutes + "m " + seconds + "s</span>";
+            }
+
+            
+            function init() {
+                // Start timer on page load
+                resetIdleTimer();
+            
+                // Reset timer on user activity events
+                // Add event listeners as required
+                
+                // Intercept AJAX requests to reset the timer
+                var originalXHR = window.XMLHttpRequest;
+                function newXHR() {
+                    var realXHR = new originalXHR();
+                    realXHR.addEventListener("readystatechange", function() {
+                        if (realXHR.readyState == 4 && realXHR.status == 200) {
+                            resetTimerOnAction();
+                        }
+                    }, false);
+                    return realXHR;
+                }
+                window.XMLHttpRequest = newXHR;
+            
+                // Initialize countdown display
+                countdownDisplay = document.getElementById("countdownDisplay");
+            }
+
+
+            
+            // Initialize on page load
+            window.onload = init;
+            var csrfName = "_csrf";
+            var csrfValue = "d628fedd-9b39-42f5-9bac-764c0647aa94";
+            var id ="100243";
+            var now = new Date();
+            var params = csrfName + "=" + csrfValue + "&authorizedID=" + id + "&x=" + now.toUTCString();
+
+            function home() {
+                ajaxCall("/vtop/home", params, "page_outline");
+            }
+
+            /*]]>*/
+        </script>
+        <nav class="navbar navbar-expand-lg py-0 navbar-light bg-light headerBackgroundColor fixed-top shadow" id="vtopHeader" style="">
+
+
+
+         <!--   <div class="ms-auto d-flex align-items-center gap-2">
+
+                &lt;!&ndash; CUSTOM LANGUAGE DROPDOWN &ndash;&gt;
+                <select class="form-select form-select-sm"
+                        onchange="changeLanguage(this.value)"
+                        style="width:130px">
+                    <option value="">Language</option>
+                    <option value="en">English</option>
+                    <option value="ta">Tamil</option>
+                    <option value="hi">Hindi</option>
+                    <option value="te">Telugu</option>
+                    <option value="kn">Kannada</option>
+                    <option value="ml">Malayalam</option>
+                </select>-->
+
+                <!-- GOOGLE TRANSLATE HIDDEN ELEMENT -->
+
+            <div class="container-fluid ms-0 ps-2">
+                <button class="btn btn-sm bg-transparent d-none d-sm-block ms-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#expandedSideBar" aria-controls="offcanvasExample">
+                    <span class="text-light h4">☰ </span>
+                </button>
+                <button class="btn btn-sm bg-transparent d-block d-sm-none ms-0" type="button" onclick="javascript:getButtonBar();">
+                    <span class="text-light h4">☰ </span>
+                </button>
+                <!-- <a class="navbar-brand px-0 pe-sm-1 mx-0 mx-sm-1" href="javacript:void(0);">
+                    <img th:src="@{/assets/img/VITLogoEmblem.png}" class="img-responsive VITEmblem" alt="" />
+                </a> -->
+                <a class="navbar-brand VITLogoStyle px-0 mx-0 text-light" href="javacript:void(0);"><span class="h1 fw-bold">VIT</span>
+                </a>
+                <span class="navbar-text px-0 px-sm-2 mx-0 mx-sm-1 text-light">(Bhopal Campus)</span>
+                <a class="navbar-text" href="javascript:void(0);" onclick="javascript:home();"><i class="bi bi-house-door text-light ps-sm-3 h4" aria-hidden="true"></i></a>
+                <a class="navbar-text" href="javascript:void(0);" id="printVTOPCoreDocument"><i class="bi bi-printer text-light ps-sm-3 h4" aria-hidden="true"></i></a>
+
+                <button class="navbar-toggler mx-0 px-0" type="button" data-bs-toggle="collapse" data-bs-target="#vtopHeaderBarControl" aria-controls="vtopHeaderBarControl" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="vtopHeaderBarControl">
+                    <div class="d-inline-block me-auto" id="quickLinks">
+                        
+                            <button class="btn btn-sm btn-outline ps-3 " data-bs-toggle="tooltip" data-bs-placement="top" title="add this menu to favourites" id="favouriteBtn"><span class="text-light">
+                                    
+                                    <i class="bi bi-star-half h4"></i>
+                                    </span></button>
+                            <div class="dropdown d-inline-block">
+                                <button class="btn btn-outline-primary btn-sm dropdown-toggle text-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span class="text-light">Quick Links</span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    
+        <li data-linkid="c26cc3bd-af9a-4c59-81ad-b5f84fa064df">
+            <div class="d-flex justify-content-between">
+                
+                <a href="javascript:void(0);" data-url="proctor/viewProctorStudentDetails" class="dropdown-item menuFontStyle quickMainMenu ">
+                    <i class="fa fa-dot-circle-o iconSpace "></i><span>Proctee Dashboard</span></a>
+
+                <button type="button" class="btn btn-sm btn-light text-dark deleteQuickLinkBtn" data-linkid="c26cc3bd-af9a-4c59-81ad-b5f84fa064df">x</button>
+            </div>
+        </li>
+        <li data-linkid="c37bcffa-e10c-49ec-adda-95394ab24309">
+            <div class="d-flex justify-content-between">
+                
+                <a href="javascript:void(0);" data-url="thervu/markEntryCourse" class="dropdown-item menuFontStyle quickMainMenu ">
+                    <i class="fa fa-dot-circle-o iconSpace "></i><span>Mark Entry</span></a>
+
+                <button type="button" class="btn btn-sm btn-light text-dark deleteQuickLinkBtn" data-linkid="c37bcffa-e10c-49ec-adda-95394ab24309">x</button>
+            </div>
+        </li>
+    
+                                </ul>
+                            </div>
+                            <script type="text/javascript" src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/favourite.js.download"></script>
+                            
+                        
+                    </div>
+                    <strong class="mx-auto fw-bold text-light bg-danger"></strong>
+
+                        
+                        <div id="countdownDisplay"></div>
+
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item d-none d-sm-inline-block">
+                            <img src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/saved_resource" class="img-circle img_icon_size" alt="User Image">
+                        </li>
+                        <li class="nav-item dropdown d-none d-sm-inline-block">
+                            <a class="nav-link dropdown-toggle text-light" href="javascript:void(0);" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="navbar-text text-light small fw-bold">100243 (FACULTY)</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end headerBackgroundColor dropdownMenuBoxWidth" aria-labelledby="navbarDropdown">
+                                <li class="dropdown-item disabled text-center"><img src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/saved_resource" class="img-circle img_stamp_size" alt="User Image"></li>
+                                <li class="dropdown-item disabled text-center"><span class="dropdown-item text-light">VIKAS PANTHI</span></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li class="dropdown-item bg-transparent">
+                                    <form class="text-center" id="logoutForm1" name="logoutForm1" method="post" action="https://vtop.vitbhopal.ac.in/vtop/logout"><input type="hidden" name="_csrf" value="d628fedd-9b39-42f5-9bac-764c0647aa94">
+                                        <input type="hidden" name="_csrf" value="d628fedd-9b39-42f5-9bac-764c0647aa94">
+                                        <input type="hidden" name="authorizedID" id="authorizedID" value="100243">
+                                        <div class="d-grid gap-2">
+                                            
+                                                <button class="btn btn-sm btn-info" id="historyBtn1" type="button">Login
+                                                    History</button>
+                                                <button class="btn btn-warning" type="button" id="btnRoleChange1" onclick="ajaxFormCall('logoutForm1','RolesForFacultyAndAdmin',null,'page_outline')">Switch
+                                                    Role</button>
+                                            
+                                            <button class="btn btn-success " type="submit">Sign out</button>
+
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item disabled text-center  d-block d-sm-none"><img src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/saved_resource" class="img-circle img_stamp_size" alt="User Image"></li>
+                        <li class="nav-item disabled text-center d-block d-sm-none"><span class="dropdown-item text-light">VIKAS PANTHI</span></li>
+                        <li class="nav-item disabled text-center d-block d-sm-none">
+                            <span class="navbar-text text-light small fw-bold">100243 (FACULTY)</span>
+                        </li>
+                        <li class="nav-item bg-transparent d-block d-sm-none">
+                            <form class="text-center" id="logoutForm1" name="logoutForm1" method="post" `="" action="https://vtop.vitbhopal.ac.in/vtop/logout"><input type="hidden" name="_csrf" value="d628fedd-9b39-42f5-9bac-764c0647aa94">
+                                <input type="hidden" name="_csrf" value="d628fedd-9b39-42f5-9bac-764c0647aa94">
+                                <input type="hidden" name="authorizedID" id="authorizedID" value="100243">
+                                <div class="d-grid gap-2">
+                                    
+                                        <button class="btn btn-sm btn-info" id="historyBtn" type="button">Login
+                                            History</button>
+                                        <button class="btn btn-sm btn-warning" type="button" id="btnRoleChange1" onclick="ajaxFormCall('logoutForm1','RolesForFacultyAndAdmin',null,'page_outline')">Switch
+                                            Role</button>
+                                    
+                                    <button class="btn btn-sm btn-success " type="submit">Sign out</button>
+
+                                </div>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+        </nav>
+        <script>
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement(
+                    {
+                        pageLanguage: 'en',
+                        includedLanguages:
+                          'en,ta,hi,bn,te,mr,gu,ur,kn,or,ml,pa,as,mai,sat,ks,kok,mni,ne,brx,doi,sd,sa',
+                        autoDisplay: false
+                    },
+                    'google_translate_element'
+                );
+            }
+        </script>
+        <script src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/element.js.download"></script>
+
+        <script>
+            function reorderLanguages() {
+                const select = document.querySelector(".goog-te-combo");
+                if (!select) return;
+
+                // ✅ exact order we want
+                const priorityOrder = ["ta", "hi"]; // Tamil first, Hindi next
+
+                const options = Array.from(select.options);
+
+                const first = options.find(o => o.value === "");
+
+                // map options by value
+                const optionMap = {};
+                options.forEach(o => optionMap[o.value] = o);
+
+                const priorityOptions = [];
+                const remainingOptions = [];
+
+                // build priority in OUR order
+                priorityOrder.forEach(lang => {
+                    if (optionMap[lang]) {
+                        priorityOptions.push(optionMap[lang]);
+                    }
+                });
+
+                // remaining languages
+                options.forEach(o => {
+                    if (
+                        o.value !== "" &&
+                        !priorityOrder.includes(o.value)
+                    ) {
+                        remainingOptions.push(o);
+                    }
+                });
+
+                // random shuffle remaining
+                for (let i = remainingOptions.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [remainingOptions[i], remainingOptions[j]] =
+                    [remainingOptions[j], remainingOptions[i]];
+                }
+
+                // rebuild dropdown
+                select.innerHTML = "";
+                if (first) select.appendChild(first);
+                priorityOptions.forEach(o => select.appendChild(o));
+                remainingOptions.forEach(o => select.appendChild(o));
+            }
+
+            // wait for google translate UI
+            let gtInterval = setInterval(() => {
+                if (document.querySelector(".goog-te-combo")) {
+                    reorderLanguages();
+                    clearInterval(gtInterval);
+                }
+            }, 300);
+        </script>
+
+        <!-- BOOTSTRAP JS -->
+
+        <script type="text/javascript" src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/vtopheader.js.download"></script>
+    
+                       
+                        <!--
+                                                <progress class="d-none position-absolute top-0 end-0" id="downloadProgress" value="0"
+                                                          max="100"
+                                                          style="width: 300px;"></progress>-->
+
+                        <div class="hstack position-absolute" id="vtop-body-content">
+
+                            <div class="vh-100 btnBarColor bg-opacity-25 shadow d-none d-sm-block" id="sidePanel">
+                                
+
+        <div class="btn-toolbar mx-1" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group-vertical" role="group" aria-label="First group">
+
+                
+                    <div class="btn-group dropend"><button type="button" class="btn btn-outline-primary p-1 border-0 text-dark SideBarMenuBtn" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false"><i class="fa fa-phone-square iconSpace"></i></button><div class="dropdown-menu border-0 py-0 shadow-lg dropdownMenuBoxWidth text-nowrap SideBarMenuDropDown"><a data-url="hrms/contactDetails" class="dropdown-item menuFontStyle systemB5BtnMenu *backColor*" href="javascript:void(0);"><i class="fa fa-phone-square iconSpace "></i> Contact Us</a></div></div>
+                
+                    <div class="btn-group dropend"><button type="button" class="btn btn-outline-primary p-1 border-0 text-dark SideBarMenuBtn" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false"><i class="fa fa-graduation-cap iconSpace"></i></button><div class="dropdown-menu border-0 py-0 shadow-lg dropdownMenuBoxWidth text-nowrap SideBarMenuDropDown" data-popper-placement="right-start" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(34px, 0px, 0px);"><div class="fw-bold h6 py-3 text-center menuHeaderColor menuHeaderFontStyle"> Academics </div>
+                
+                    <a data-url="hrms/openHoursOfFaculty" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Open Hours</a>
+                
+                    <a data-url="academics/common/WorkLoad" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Work Load</a>
+                
+                    <a data-url="examinations/markOptionConfiguration/Initial" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Mark Configuration</a>
+                
+                    <div class="accordion" id="accordianHead_1001"><div class="accordion-item border-0"><div class="accordion-header" id="acItemACD0004"><button class="accordion-button collapsed menuFontStyle py-2 ps-2 text-center bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acCollapseACD0004" aria-expanded="false" aria-controls="acCollapseACD0004"> &nbsp;&nbsp;&nbsp; <i class="fa fa-dot-circle-o iconSpace "></i><span class="ps-2 ms-1 fw-bold textColor1"> Course <span></span></span></button></div><div id="acCollapseACD0004" class="accordion-collapse collapse" aria-labelledby="acItemACD0004" data-bs-parent="#accordianHead_1001"><div class="accordion-body py-0 px-2">
+                
+                    <a data-url="academics/common/CoursePageProcess" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Course Page</a>
+                
+                    <a data-url="academics/common/CourseSyllabusDownload" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Course Syllabus</a>
+                
+                    <a data-url="academics/common/CoursePageView" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Course Page View</a>
+                
+                    </div></div></div><div class="accordion-item border-0"><div class="accordion-header" id="acItemACD0039"><button class="accordion-button menuFontStyle py-2 ps-2 text-center bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acCollapseACD0039" aria-expanded="true" aria-controls="acCollapseACD0039"> &nbsp;&nbsp;&nbsp; <i class="fa fa-dot-circle-o iconSpace "></i><span class="ps-2 ms-1 fw-bold textColor1"> Attendance <span></span></span></button></div><div id="acCollapseACD0039" class="accordion-collapse collapse show" aria-labelledby="acItemACD0039" data-bs-parent="#accordianHead_1001" style=""><div class="accordion-body py-0 px-2">
+                
+                    <a data-url="academics/common/Attendance" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Roster</a>
+                
+                    <a data-url="academics/common/FacultyAttendanceReport" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Attendance Report</a>
+                
+                    </div></div></div><div class="accordion-item border-0"><div class="accordion-header" id="acItemACD0179"><button class="accordion-button collapsed menuFontStyle py-2 ps-2 text-center bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acCollapseACD0179" aria-expanded="false" aria-controls="acCollapseACD0179"> &nbsp;&nbsp;&nbsp; <i class="fa fa-dot-circle-o iconSpace "></i><span class="ps-2 ms-1 fw-bold textColor1"> Feedback <span></span></span></button></div><div id="acCollapseACD0179" class="accordion-collapse collapse" aria-labelledby="acItemACD0179" data-bs-parent="#accordianHead_1001"><div class="accordion-body py-0 px-2">
+                
+                    <a data-url="academics/common/Feedback" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Student Feedback</a>
+                
+                    <a data-url="academics/PJTReg/loadRegistrationPage" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Registration</a>
+                
+                    </div></div></div></div></div></div><div class="btn-group dropend"><button type="button" class="btn btn-outline-primary p-1 border-0 text-dark SideBarMenuBtn" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false"><i class="fa fa-cogs iconSpace"></i></button><div class="dropdown-menu border-0 py-0 shadow-lg dropdownMenuBoxWidth text-nowrap SideBarMenuDropDown"><div class="fw-bold h6 py-3 text-center menuHeaderColor menuHeaderFontStyle"> Evaluations </div>
+                
+                    <a data-url="thervu/markEntryCourse" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Mark Entry</a>
+                
+                    <a data-url="examinations/arrearRegistration/ArrearMarkEntry/LoadRARMarkEntryPage" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Arrear/SUP/GI Mark Entry</a>
+                
+                    <a data-url="examinations/arrearRegistration/ArrearReEvalMarkEntry/navigateToMainPage" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Arrear Rev Mark Entry</a>
+                
+                    <a data-url="examinations/arrearRegistration/doStudentArrearGradeAdminView" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Arrear Grades</a>
+                
+                    <div class="accordion" id="accordianHead_1002"><div class="accordion-item border-0"><div class="accordion-header" id="acItemHDG0032"><button class="accordion-button collapsed menuFontStyle py-2 ps-2 text-center bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acCollapseHDG0032" aria-expanded="false" aria-controls="acCollapseHDG0032"> &nbsp;&nbsp;&nbsp; <i class="fa fa-dot-circle-o iconSpace "></i><span class="ps-2 ms-1 fw-bold textColor1"> Invigilation <span></span></span></button></div><div id="acCollapseHDG0032" class="accordion-collapse collapse" aria-labelledby="acItemHDG0032" data-bs-parent="#accordianHead_1002"><div class="accordion-body py-0 px-2">
+                
+                    <a data-url="examinations/invigilation/invigilationDutyExchange" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Duty Exchange</a>
+                
+                    <a data-url="examinations/invigilation/InvigilationDetailsFacultyView" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Duty View</a>
+                
+                    <a data-url="examinations/arrearRegistration/qpKey/LoadRARQPKeyFacultyUploadPage" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Arrear QP and Key Upload</a>
+                
+                    </div></div></div></div></div></div><div class="btn-group dropend"><button type="button" class="btn btn-outline-primary p-1 border-0 text-dark SideBarMenuBtn" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false"><i class="fa fa-user iconSpace"></i></button><div class="dropdown-menu border-0 py-0 shadow-lg dropdownMenuBoxWidth text-nowrap SideBarMenuDropDown"><div class="fw-bold h6 py-3 text-center menuHeaderColor menuHeaderFontStyle"> Student Info </div>
+                
+                    <a data-url="admissions/dynamicStudentProfile" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Student Profile Info</a>
+                
+                    <a data-url="admissions/StudentStatusPage" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Student Lock Status</a>
+                
+                    <a data-url="academics/common/StudentCurriculum" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Curriculum</a>
+                
+                    <a data-url="academics/common/AdminTimeTable" class="dropdown-item menuFontStyle systemB5BtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Registration</a>
+                
+                    <a data-url="academics/common/AdminViewStudentAttendance" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Attendance</a>
+                
+                    <a data-url="examinations/AdminStudentMarkView" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Mark Details</a>
+                
+                    <a data-url="examinations/AdminExamSchedule" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Exam Schedule </a>
+                
+                    <a data-url="examinations/examGradeView/doStudentGradeAdminView" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Grade Details</a>
+                
+                    <a data-url="examinations/examGradeView/AdminGradeHistoryViewPageControl" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Grade History</a>
+                
+                    <a data-url="examinations/OfflineStudExamSchedule" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Offline Exam Schedule</a>
+                
+                    </div></div><div class="btn-group dropend"><button type="button" class="btn btn-outline-primary p-1 border-0 text-dark SideBarMenuBtn" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false"><i class="fa fa-paw iconSpace"></i></button><div class="dropdown-menu border-0 py-0 shadow-lg dropdownMenuBoxWidth text-nowrap SideBarMenuDropDown"><div class="fw-bold h6 py-3 text-center menuHeaderColor menuHeaderFontStyle"> Proctor </div>
+                
+                    <a data-url="hostels/proctor/leave/approval/1" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Leave Approval</a>
+                
+                    <a data-url="proctor/viewProctorStudentDetails" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Proctee Dashboard</a>
+                
+                    <a data-url="proctor/viewStudentMessage" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Proctee Message</a>
+                
+                    <a data-url="hostels/late/hour/faculty/approval/1" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Late Hour Request</a>
+                
+                    </div></div><div class="btn-group dropend"><button type="button" class="btn btn-outline-primary p-1 border-0 text-dark SideBarMenuBtn" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false"><i class="fa fa-bank iconSpace"></i></button><div class="dropdown-menu border-0 py-0 shadow-lg dropdownMenuBoxWidth text-nowrap SideBarMenuDropDown"><div class="fw-bold h6 py-3 text-center menuHeaderColor menuHeaderFontStyle"> Research </div>
+                
+                    <a data-url="research/researchProfile2Guide" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Profile Approval</a>
+                
+                    <a data-url="research/researchStudentList" class="dropdown-item menuFontStyle systemB5BtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Onroll Scholars</a>
+                
+                    <a data-url="research/courseCatalogByGuide" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Course Catalog</a>
+                
+                    <div class="accordion" id="accordianHead_1003"><div class="accordion-item border-0"><div class="accordion-header" id="acItemRSH0050"><button class="accordion-button collapsed menuFontStyle py-2 ps-2 text-center bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acCollapseRSH0050" aria-expanded="false" aria-controls="acCollapseRSH0050"> &nbsp;&nbsp;&nbsp; <i class="fa fa-dot-circle-o iconSpace "></i><span class="ps-2 ms-1 fw-bold textColor1"> Coursework Allocation <span></span></span></button></div><div id="acCollapseRSH0050" class="accordion-collapse collapse" aria-labelledby="acItemRSH0050" data-bs-parent="#accordianHead_1003"><div class="accordion-body py-0 px-2">
+                
+                    <a data-url="research/CourseAllocationByGuide" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Scholars-Pre 2018</a>
+                
+                    <a data-url="research/CourseAllocationByGuideFrom18" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Scholars-2018 Onwards</a>
+                
+                    <div class="accordion" id="accordianHead_1004"><div class="accordion-item border-0"><div class="accordion-header" id="acItemRSH0087"><button class="accordion-button collapsed menuFontStyle py-2 ps-2 text-center bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acCollapseRSH0087" aria-expanded="false" aria-controls="acCollapseRSH0087"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-dot-circle-o iconSpace "></i><span class="ps-2 ms-1 fw-bold textColor1"> Seed Grant Project <span></span></span></button></div><div id="acCollapseRSH0087" class="accordion-collapse collapse" aria-labelledby="acItemRSH0087" data-bs-parent="#accordianHead_1004"><div class="accordion-body py-0 px-2">
+                
+                    <a data-url="research/seedGrantProjectApplication" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Seed Grant Application</a>
+                
+                    <a data-url="research/seed/pptEvaluation" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> PPT for Evaluation</a>
+                
+                    <a data-url="research/seed/uploads" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Project Uploads</a>
+                
+                    </div></div></div></div></div></div></div></div></div></div><div class="btn-group dropend"><button type="button" class="btn btn-outline-primary p-1 border-0 text-dark SideBarMenuBtn" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false"><i class="fa fa-book iconSpace"></i></button><div class="dropdown-menu border-0 py-0 shadow-lg dropdownMenuBoxWidth text-nowrap SideBarMenuDropDown"><div class="fw-bold h6 py-3 text-center menuHeaderColor menuHeaderFontStyle"> CITL FDP </div>
+                
+                    <a data-url="events/ASC/doLoadFDPRequistionPage" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> FDP Requisition Form</a>
+                
+                    <a data-url="events/ASC/EventsRegistration" class="dropdown-item menuFontStyle systemB5BtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> FDP Registration</a>
+                
+                    <a data-url="events/ASC/EventsCertificateDownload" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Participant Certificate</a>
+                
+                    <a data-url="events/ASC/getAscCoordinatorCertificatePage" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Coordinator Certificate</a>
+                
+                    <a data-url="events/ASC/getInternalResourceCertificatePage" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Resource Person Certificate</a>
+                
+                    <a data-url="events/ASC/loadTLCECoordinatorRequisitionPage" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Event Recommendation</a>
+                
+                    </div></div><div class="btn-group dropend"><button type="button" class="btn btn-outline-primary p-1 border-0 text-dark SideBarMenuBtn" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false"><i class="fa fa-trophy iconSpace"></i></button><div class="dropdown-menu border-0 py-0 shadow-lg dropdownMenuBoxWidth text-nowrap SideBarMenuDropDown"><div class="fw-bold h6 py-3 text-center menuHeaderColor menuHeaderFontStyle"> SW Events </div>
+                
+                    <a data-url="event/swf/admin/loadCCEnrollmentView" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Club/Chapter Enrollment View</a>
+                
+                    <a data-url="event/swf/loadEventRegistration" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Event Registration</a>
+                
+                    <a data-url="event/swf/loadRequisitionPage" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Event Requisition</a>
+                
+                    <a data-url="event/swf/loadEventAttendance" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Event Attendance</a>
+                
+                    <a data-url="event/swf/loadRequisitionList" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Event Approval</a>
+                
+                    <a data-url="event/swf/loadEventParticipants" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Event Achievers</a>
+                
+                    <a data-url="event/swf/loadBoardMembersInfo" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Add Board Members</a>
+                
+                    <a data-url="event/swf/loadEventSummaryReportPage" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Event Summary Report</a>
+                
+                    <a data-url="event/swf/certificate/loadGuestRsrcDownloadPage" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Resource/Guest Certificate</a>
+                
+                    <a data-url="event/swf/admin/loadReportPage" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Event Reports</a>
+                
+                    <a data-url="events/swf/downloadReport" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Student Club Registration Details</a>
+                
+                    </div></div><div class="btn-group dropend"><button type="button" class="btn btn-outline-primary p-1 border-0 text-dark SideBarMenuBtn" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false"><i class="fa fa-user-plus iconSpace"></i></button><div class="dropdown-menu border-0 py-0 shadow-lg dropdownMenuBoxWidth text-nowrap SideBarMenuDropDown"><div class="fw-bold h6 py-3 text-center menuHeaderColor menuHeaderFontStyle"> Info Corner </div>
+                
+                    <a data-url="academics/common/CalendarPreview" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Academics Calendar</a>
+                
+                    </div></div><div class="btn-group dropend"><button type="button" class="btn btn-outline-primary p-1 border-0 text-dark SideBarMenuBtn" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false"><i class="fa fa-cog iconSpace"></i></button><div class="dropdown-menu border-0 py-0 shadow-lg dropdownMenuBoxWidth text-nowrap SideBarMenuDropDown"><div class="fw-bold h6 py-3 text-center menuHeaderColor menuHeaderFontStyle"> General </div>
+                
+                    <a data-url="academics/common/FaqPreview" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> FAQ</a>
+                
+                    <a data-url="spotlight/spotlightViewOld" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Spotlight</a>
+                
+                    </div></div><div class="btn-group dropend"><button type="button" class="btn btn-outline-primary p-1 border-0 text-dark SideBarMenuBtn" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false"><i class="fa fa-home iconSpace"></i></button><div class="dropdown-menu border-0 py-0 shadow-lg dropdownMenuBoxWidth text-nowrap SideBarMenuDropDown"><div class="fw-bold h6 py-3 text-center menuHeaderColor menuHeaderFontStyle"> Human Resource </div>
+                
+                    <a data-url="hrms/viewPayslipDetails" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> View Payslip</a>
+                
+                    <a data-url="hrms/employeeSearch" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Employee Search</a>
+                
+                    <a data-url="hrms/mySchoolCentreEmployees" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> My School/Centre Employees</a>
+                
+                    <a data-url="hrms/employeeMobileNumberUpdation" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Mobile Number Updation</a>
+                
+                    <a data-url="hrms/downloadMediClaimCard" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Download Mediclaim E-Card</a>
+                
+                    </div></div><div class="btn-group dropend"><button type="button" class="btn btn-outline-primary p-1 border-0 text-dark SideBarMenuBtn" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false"><i class="fa fa-shield iconSpace"></i></button><div class="dropdown-menu border-0 py-0 shadow-lg dropdownMenuBoxWidth text-nowrap SideBarMenuDropDown"><div class="fw-bold h6 py-3 text-center menuHeaderColor menuHeaderFontStyle"> Events </div>
+                
+                    <a data-url="events/General/doLoadGeneralCertificatePage" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> POSH Certificate</a>
+                
+                    </div></div><div class="btn-group dropend"><button type="button" class="btn btn-outline-primary p-1 border-0 text-dark SideBarMenuBtn" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false"><i class="fa fa-user-plus iconSpace"></i></button><div class="dropdown-menu border-0 py-0 shadow-lg dropdownMenuBoxWidth text-nowrap SideBarMenuDropDown"><div class="fw-bold h6 py-3 text-center menuHeaderColor menuHeaderFontStyle"> Campus Services </div>
+                
+                    <div class="accordion" id="accordianHead_1005"><div class="accordion-item border-0"><div class="accordion-header" id="acItemTRA1007"><button class="accordion-button collapsed menuFontStyle py-2 ps-2 text-center bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acCollapseTRA1007" aria-expanded="false" aria-controls="acCollapseTRA1007"> &nbsp;&nbsp;&nbsp; <i class="fa fa-dot-circle-o iconSpace "></i><span class="ps-2 ms-1 fw-bold textColor1"> Transport <span></span></span></button></div><div id="acCollapseTRA1007" class="accordion-collapse collapse" aria-labelledby="acItemTRA1007" data-bs-parent="#accordianHead_1005"><div class="accordion-body py-0 px-2">
+                
+                    <a data-url="campusServices/requisitionDashboard" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Transport Requisition Form</a>
+                
+                    <a data-url="campusService/transportServiceAdmin" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Transport Requisition Approval</a>
+                
+                    <a data-url="campusServices/transportReportingApprovedReport" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Transport Reporting Approved Report</a>
+                
+                    </div></div></div><div class="accordion-item border-0"><div class="accordion-header" id="acItemTRA1008"><button class="accordion-button collapsed menuFontStyle py-2 ps-2 text-center bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acCollapseTRA1008" aria-expanded="false" aria-controls="acCollapseTRA1008"> &nbsp;&nbsp;&nbsp; <i class="fa fa-dot-circle-o iconSpace "></i><span class="ps-2 ms-1 fw-bold textColor1"> Refreshment <span></span></span></button></div><div id="acCollapseTRA1008" class="accordion-collapse collapse" aria-labelledby="acItemTRA1008" data-bs-parent="#accordianHead_1005"><div class="accordion-body py-0 px-2">
+                
+                    <a data-url="campusServices/refreshmentRequisitionDashBoard" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Refreshment Requisition Form</a>
+                
+                    <a data-url="campusService/refreshmentRequisitionApproval" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Refreshment Requisition Approval</a>
+                
+                    </div></div></div><div class="accordion-item border-0"><div class="accordion-header" id="acItemTRA1013"><button class="accordion-button collapsed menuFontStyle py-2 ps-2 text-center bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acCollapseTRA1013" aria-expanded="false" aria-controls="acCollapseTRA1013"> &nbsp;&nbsp;&nbsp; <i class="fa fa-dot-circle-o iconSpace "></i><span class="ps-2 ms-1 fw-bold textColor1"> Finance Services <span></span></span></button></div><div id="acCollapseTRA1013" class="accordion-collapse collapse" aria-labelledby="acItemTRA1013" data-bs-parent="#accordianHead_1005"><div class="accordion-body py-0 px-2">
+                
+                    <a data-url="campusService/AdvanceRequisitionForm" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Advance Request</a>
+                
+                    <a data-url="campusService/advanceReporterApproval" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Advance Request Approval</a>
+                
+                    <a data-url="campusService/Reimbursement" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Reimbursement Request</a>
+                
+                    <a data-url="campusService/ReimbursementReportingApproval" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Reimbursement Reporting Approval</a>
+                
+                    </div></div></div><div class="accordion-item border-0"><div class="accordion-header" id="acItemGST001"><button class="accordion-button collapsed menuFontStyle py-2 ps-2 text-center bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acCollapseGST001" aria-expanded="false" aria-controls="acCollapseGST001"> &nbsp;&nbsp;&nbsp; <i class="fa fa-home iconSpace "></i><span class="ps-2 ms-1 fw-bold textColor1"> Guest Room Requestion <span></span></span></button></div><div id="acCollapseGST001" class="accordion-collapse collapse" aria-labelledby="acItemGST001" data-bs-parent="#accordianHead_1005"><div class="accordion-body py-0 px-2">
+                
+                    <a data-url="book/room/for/guests" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Guest Room Requestion</a>
+                
+                    <a data-url="approval/screen/for/guesthouse/booking/by/section/head" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Guest Room Approval</a>
+                
+                    <a data-url="guestHouseBooking/loadReportPage" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Guest Room Reports</a>
+                
+                    </div></div></div></div></div></div><div class="btn-group dropend"><button type="button" class="btn btn-outline-primary p-1 border-0 text-dark SideBarMenuBtn" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false"><i class="fa fa-book iconSpace"></i></button><div class="dropdown-menu border-0 py-0 shadow-lg dropdownMenuBoxWidth text-nowrap SideBarMenuDropDown"><div class="fw-bold h6 py-3 text-center menuHeaderColor menuHeaderFontStyle"> Help </div>
+                
+                    <a data-url="ticketrise/createTicket" class="dropdown-item menuFontStyle systemBtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Support &amp; Complaints</a>
+                
+                    </div></div><div class="btn-group dropend"><button type="button" class="btn btn-outline-primary p-1 border-0 text-dark SideBarMenuBtn" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false"><i class="fa fa-lock iconSpace"></i></button><div class="dropdown-menu border-0 py-0 shadow-lg dropdownMenuBoxWidth text-nowrap SideBarMenuDropDown"><div class="fw-bold h6 py-3 text-center menuHeaderColor menuHeaderFontStyle"> My Account </div>
+                
+                    <a data-url="backupCode/getBackupcodes" class="dropdown-item menuFontStyle systemB5BtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-lock iconSpace "></i> Backup Codes</a>
+                
+                    <a data-url="controlpanel/ChangePassword" class="dropdown-item menuFontStyle systemB5BtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-lock iconSpace "></i> Change Password</a>
+                
+                    <a data-url="controlpanel/SetDefaultRole" class="dropdown-item menuFontStyle systemB5BtnMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-lock iconSpace "></i> Set Default Role</a></div></div>
+                
+
+            </div>
+        </div>
+
+        <script>
+            /*<![CDATA[*/
+
+            var actionButton = document.getElementsByClassName("systemBtnMenu"); 
+            for (let i = 0; i < actionButton.length; i++) {
+                actionButton[i].addEventListener('click', assembleData, false);
+            }
+
+            var actionButton2 = document.getElementsByClassName("systemB5BtnMenu"); 
+            for (let i = 0; i < actionButton2.length; i++) {
+                actionButton2[i].addEventListener('click', assembleDataForB5, false);
+            }
+
+            function assembleData() {
+                var authorizedID = $("#authorizedIDX").val();
+                let csrfName = "_csrf";
+                let csrfValue = "d628fedd-9b39-42f5-9bac-764c0647aa94";
+                var dataText = "verifyMenu=true&authorizedID=" + authorizedID +"&"+ csrfName + '=' + csrfValue+"&nocache=@(new Date().getTime())"
+                let url = this.dataset.url;
+                ajaxCall(url, dataText);
+                $(this).closest('.dropdown-menu.show').removeClass('show');
+                $(this).closest('.btn-group.dropend').children(".SideBarMenuBtn.show").removeClass('show');
+                $(this).closest('.btn-group.dropend').children(".SideBarMenuBtn").attr("aria-expanded","false");
+                var btnBarElem=document.getElementById("sidePanel");
+                if(!btnBarElem.classList.contains("d-none")) {
+                    btnBarElem.classList.add("d-none");
+                }
+            }
+
+            function assembleDataForB5() {
+                var authorizedID = $("#authorizedIDX").val();
+                let csrfName = "_csrf";
+                let csrfValue = "d628fedd-9b39-42f5-9bac-764c0647aa94";
+                var dataText = "verifyMenu=true&authorizedID=" + authorizedID +"&"+ csrfName + '=' + csrfValue+"&nocache=@(new Date().getTime())"
+                let url = this.dataset.url;
+                ajaxB5Call(url, dataText);
+                //$(this).parents().find('.show').removeClass('show');
+                $(this).closest('.dropdown-menu.show').removeClass('show');
+                $(this).closest('.btn-group.dropend').children(".SideBarMenuBtn.show").removeClass('show');
+                $(this).closest('.btn-group.dropend').children(".SideBarMenuBtn").attr("aria-expanded","false");
+                
+                
+                var btnBarElem=document.getElementById("sidePanel");
+                if(!btnBarElem.classList.contains("d-none")) {
+                    btnBarElem.classList.add("d-none");
+                }
+
+            }
+
+
+            /*]]>*/
+        </script>
+
+
+    
+                            </div>
+
+                            <div class="vh-100 vw-100 overflow-auto p-0 mx-0 mb-5 mt-0" id="core-container">
+
+                                <div class="vh-100 overflow-auto pb-5 mb-5 showBlock" id="b3wrapper">
+                                    <div class="bootstrap3-iso" id="page-wrapper">
+
+
+		
+		<link rel="stylesheet" href="./VIT Bhopal - VTOP Pyhton Date of lecture_files/validationEngine.jquery.css">	
+		<link rel="stylesheet" href="./VIT Bhopal - VTOP Pyhton Date of lecture_files/sweetalert.css">	
+				<style>h3.box-title{ text-transform: capitalize;}</style>
+	
+			
+		<script src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/jquery.validationEngine.js.download"></script>
+		<script src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/sweetalert.min.js.download"></script>
+		<script src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/validate2.js.download"></script>	
+		<script type="text/javascript" src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/jquery.validationEngine-en.js.download"></script>		
+   	
+		
+		<link rel="stylesheet" href="./VIT Bhopal - VTOP Pyhton Date of lecture_files/datatables.css"> 	
+    
+	  
+    	<script type="text/javascript" src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/datatables.js.download"></script>		   	
+   	
+
+
+
+	<div id="main-section">
+
+
+		
+		<link rel="stylesheet" href="./VIT Bhopal - VTOP Pyhton Date of lecture_files/validationEngine.jquery.css">	
+		<link rel="stylesheet" href="./VIT Bhopal - VTOP Pyhton Date of lecture_files/sweetalert.css">	
+				<style>h3.box-title{ text-transform: capitalize;}</style>
+	
+			
+		<script src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/jquery.validationEngine.js.download"></script>
+		<script src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/sweetalert.min.js.download"></script>
+		<script src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/validate2.js.download"></script>	
+		<script type="text/javascript" src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/jquery.validationEngine-en.js.download"></script>		
+   	
+		
+		<link rel="stylesheet" href="./VIT Bhopal - VTOP Pyhton Date of lecture_files/datatables.css"> 	
+    
+	  
+    	<script type="text/javascript" src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/datatables.js.download"></script>		   	
+   	
+
+
+	<div id="main-section">
+
+		<section class="content">
+			<div class="col-sm-12">
+
+				<div class="box box-info">
+					<div class="box-header with-border">
+						<h3 class="box-title">Attendance - Process</h3>
+					</div>
+
+					<div class="box-body">
+
+						<form class="form-horizontal" method="post" id="attendanceProcess" name="attendanceProcess" autocomplete="off">
+							<input type="hidden" name="_csrf" value="d628fedd-9b39-42f5-9bac-764c0647aa94">
+							<input type="hidden" name="authorizedID" id="authorizedID" value="100243">
+									
+							<input type="hidden" class="form-control" name="message" id="message" value="">
+							
+							<div class="col-sm-12 form-group">
+								<div class="col-sm-2 col-md-offset-0">
+									<button type="button" class="btn btn-md btn-primary btn-block" onclick="callAttendanceHome();">&lt;&lt;&nbsp;&nbsp;Back</button>
+								</div>
+							</div>
+														
+							<div class="col-sm-12 form-group table-responsive" style="overflow-y: hidden;">
+								
+								<input type="hidden" class="form-control" name="semesterSubId" id="semesterSubId" value="BL20262701">
+								
+								<input type="hidden" class="form-control" name="courseId" id="courseId" value="BP_CSE3011_00100">
+									
+								<input type="hidden" class="form-control" name="courseType" id="courseType" value="LP">
+									
+								<input type="hidden" class="form-control" name="classId" id="classId" value="BL2026270100324">
+								
+								<div id="ClassDetailDataTable_wrapper" class="dataTables_wrapper no-footer"><table id="ClassDetailDataTable" class="table table-bordered table-hover responsive dataTable no-footer dtr-inline">
+									
+									<thead>								
+										<tr style="background-color: #3c8dbc; border-color: #fff; color: #fff; text-align: center;"><td class="sorting_disabled" rowspan="1" colspan="1" style="width: 25%;"><b>Class Group</b></td><td class="sorting_disabled" rowspan="1" colspan="1" style="width: 25%;"><b>Course Detail</b></td><td class="sorting_disabled" rowspan="1" colspan="1" style="width: 25%;"><b>Class Detail</b></td><td class="sorting_disabled" rowspan="1" colspan="1" style="width: 25%;"><b>Attendance Type</b></td></tr>
+									</thead>
+									
+									<tbody>
+									
+									<tr class="odd">
+										<td style="text-align: center" class="dtr-control" tabindex="0">
+											<span>General</span>
+										</td>
+										
+										<td>
+											<span>CSE3011 <b>|</b> LP</span>
+											<a id="courseDetailIconShow" style="float: right;font-size:15px;" onclick="javascript: callCourseDetailDisplay('1');" href="javascript:void(0);">
+												<span title="Show More" class="glyphicon glyphicon-chevron-down"></span>
+											</a>
+											<a id="courseDetailIconNoShow" style="float: right;font-size:15px;display:none;" onclick="javascript: callCourseDetailDisplay('2');" href="javascript:void(0);">
+												<span title="Show less" class="glyphicon glyphicon-chevron-up"></span>
+											</a>
+																					
+											<span id="courseDetailShow" style="display:none;">
+												<span><b>Code:</b> CSE3011</span><br>
+												<span><b>Title:</b> Python Programming</span><br>
+												<span><b>Version:</b> 1.0</span><br>
+												<span><b>Type:</b> Lecture and Practical Hours Only</span><br>
+												
+												<span><b>L T P J C:</b> </span>
+												
+												
+												
+												<span>2 0 1 0 3.0</span>
+											</span>
+										</td>
+										
+										<td>
+											<span>BL2026270100324 <b>|</b> F11+F12</span>
+											<a id="classDetailIconShow" style="float: right;font-size:15px;" onclick="javascript: callClassDetailDisplay('1');" href="javascript:void(0);">
+												<span title="Show More" class="glyphicon glyphicon-chevron-down"></span>
+											</a>
+											<a id="classDetailIconNoShow" style="float: right;font-size:15px;display:none;" onclick="javascript: callClassDetailDisplay('2');" href="javascript:void(0);">
+												<span title="Show less" class="glyphicon glyphicon-chevron-up"></span>
+											</a>
+											
+											<span id="classDetailShow" style="display:none;">
+												<span><b>Class Id:</b> BL2026270100324</span><br>
+												<span><b>Registered Seats:</b> 110</span><br>
+												<span><b>Slot:</b> F11+F12</span><br>
+												<span><b>Venue:</b> AB02-301</span>
+											</span>
+										</td>
+																				
+										<td align="center">							
+											<span>
+												<span>Manual</span>
+												
+												
+											</span>
+										</td>
+									</tr></tbody>
+									
+								</table></div>
+							</div>
+													
+							<div class="col-sm-12 form-group table-responsive" style="overflow-y: hidden;">
+																		
+								<div id="AttendanceDateDetailDataTable_wrapper" class="dataTables_wrapper no-footer"><div id="AttendanceDateDetailDataTable_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="AttendanceDateDetailDataTable"></label></div><table id="AttendanceDateDetailDataTable" class="table table-bordered table-hover responsive dataTable no-footer dtr-inline">	
+									
+									<thead>
+									<tr style="background-color: #3c8dbc; border-color: #fff; color: #fff;"><td style="text-align: center; width: 5%;" class="sorting_disabled" rowspan="1" colspan="1"><b>Sl.No.</b></td><td style="text-align: center; width: 15%;" class="sorting_disabled" rowspan="1" colspan="1"><b>Attendance Date</b></td><td style="text-align: center; width: 25%;" class="sorting_disabled" rowspan="1" colspan="1"><b>Attendance Detail</b></td><td style="text-align: center; width: 25%;" class="sorting_disabled" rowspan="1" colspan="1"><b>Attendance Student Count</b></td><td style="text-align: center; width: 15%;" class="sorting_disabled" rowspan="1" colspan="1"><b>Attendance Status</b></td><td style="text-align: center; width: 5%;" class="sorting_disabled" rowspan="1" colspan="1"><b>Add / Modify</b></td><td style="text-align: center; width: 5%;" class="sorting_disabled" rowspan="1" colspan="1"><b>Bulk Post</b></td><td style="text-align: center; width: 5%;" class="sorting_disabled" rowspan="1" colspan="1"><b>View</b></td></tr>
+									</thead>
+									
+								    <tbody>
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									<tr style="background-color: #ffffff;" class="odd">
+										<td style="width: 5%;" align="center" class="dtr-control" tabindex="0">
+											<span>1</span>
+										</td>
+										
+										<td style="width: 15%;" align="center">
+											<span>08-10-2026</span>
+										</td>
+																				
+										<td>
+											<span>THU <b>|</b> F12 <b>|</b> 11:40  To  13:10</span>
+										</td>
+										
+										<td>
+											<span>
+												<span><b>Present:</b> 105 <b>| Absent:</b> 5<b>|<br>On Duty:</b> 0 <b>| Medical Leave:</b> 0<b>|<br>Not Attended:</b> 0 <b>| Total:</b> 110</span>
+											</span>
+											
+										</td>
+										
+										<td align="center">
+											
+											
+											<span><b>Posted</b></span>
+											
+										</td>
+																				
+										<td align="center">											
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">													
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">
+											<a class="btn btn-link" onclick="javascript: callAttendancePostView('08-10-2026','F12','2');" href="javascript:void(0);">
+												<span title="View Attendance" class="glyphicon glyphicon-eye-open"></span>
+											</a>
+											
+										</td>
+									</tr><tr style="background-color: #ffffff;" class="even">
+										<td style="width: 5%;" align="center" class="dtr-control" tabindex="0">
+											<span>2</span>
+										</td>
+										
+										<td style="width: 15%;" align="center">
+											<span>06-10-2026</span>
+										</td>
+																				
+										<td>
+											<span>TUE <b>|</b> F11 <b>|</b> 11:40  To  13:10</span>
+										</td>
+										
+										<td>
+											<span>
+												<span><b>Present:</b> 86 <b>| Absent:</b> 13<b>|<br>On Duty:</b> 11 <b>| Medical Leave:</b> 0<b>|<br>Not Attended:</b> 0 <b>| Total:</b> 110</span>
+											</span>
+											
+										</td>
+										
+										<td align="center">
+											
+											
+											<span><b>Posted</b></span>
+											
+										</td>
+																				
+										<td align="center">											
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">													
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">
+											<a class="btn btn-link" onclick="javascript: callAttendancePostView('06-10-2026','F11','2');" href="javascript:void(0);">
+												<span title="View Attendance" class="glyphicon glyphicon-eye-open"></span>
+											</a>
+											
+										</td>
+									</tr><tr style="background-color: #ffffff;" class="odd">
+										<td style="width: 5%;" align="center" class="dtr-control" tabindex="0">
+											<span>3</span>
+										</td>
+										
+										<td style="width: 15%;" align="center">
+											<span>01-10-2026</span>
+										</td>
+																				
+										<td>
+											<span>THU <b>|</b> F12 <b>|</b> 11:40  To  13:10</span>
+										</td>
+										
+										<td>
+											<span>
+												<span><b>Present:</b> 110 <b>| Absent:</b> 0<b>|<br>On Duty:</b> 0 <b>| Medical Leave:</b> 0<b>|<br>Not Attended:</b> 0 <b>| Total:</b> 110</span>
+											</span>
+											
+										</td>
+										
+										<td align="center">
+											
+											
+											<span><b>Posted</b></span>
+											
+										</td>
+																				
+										<td align="center">											
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">													
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">
+											<a class="btn btn-link" onclick="javascript: callAttendancePostView('01-10-2026','F12','2');" href="javascript:void(0);">
+												<span title="View Attendance" class="glyphicon glyphicon-eye-open"></span>
+											</a>
+											
+										</td>
+									</tr><tr style="background-color: #ffffff;" class="even">
+										<td style="width: 5%;" align="center" class="dtr-control" tabindex="0">
+											<span>4</span>
+										</td>
+										
+										<td style="width: 15%;" align="center">
+											<span>29-09-2026</span>
+										</td>
+																				
+										<td>
+											<span>TUE <b>|</b> F11 <b>|</b> 11:40  To  13:10</span>
+										</td>
+										
+										<td>
+											<span>
+												<span><b>Present:</b> 93 <b>| Absent:</b> 17<b>|<br>On Duty:</b> 0 <b>| Medical Leave:</b> 0<b>|<br>Not Attended:</b> 0 <b>| Total:</b> 110</span>
+											</span>
+											
+										</td>
+										
+										<td align="center">
+											
+											
+											<span><b>Posted</b></span>
+											
+										</td>
+																				
+										<td align="center">											
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">													
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">
+											<a class="btn btn-link" onclick="javascript: callAttendancePostView('29-09-2026','F11','2');" href="javascript:void(0);">
+												<span title="View Attendance" class="glyphicon glyphicon-eye-open"></span>
+											</a>
+											
+										</td>
+									</tr><tr style="background-color: #ffffff;" class="odd">
+										<td style="width: 5%;" align="center" class="dtr-control" tabindex="0">
+											<span>5</span>
+										</td>
+										
+										<td style="width: 15%;" align="center">
+											<span>17-09-2026</span>
+										</td>
+																				
+										<td>
+											<span>THU <b>|</b> F12 <b>|</b> 11:40  To  13:10</span>
+										</td>
+										
+										<td>
+											<span>
+												<span><b>Present:</b> 100 <b>| Absent:</b> 10<b>|<br>On Duty:</b> 0 <b>| Medical Leave:</b> 0<b>|<br>Not Attended:</b> 0 <b>| Total:</b> 110</span>
+											</span>
+											
+										</td>
+										
+										<td align="center">
+											
+											
+											<span><b>Posted</b></span>
+											
+										</td>
+																				
+										<td align="center">											
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">													
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">
+											<a class="btn btn-link" onclick="javascript: callAttendancePostView('17-09-2026','F12','2');" href="javascript:void(0);">
+												<span title="View Attendance" class="glyphicon glyphicon-eye-open"></span>
+											</a>
+											
+										</td>
+									</tr><tr style="background-color: #ffffff;" class="even">
+										<td style="width: 5%;" align="center" class="dtr-control" tabindex="0">
+											<span>6</span>
+										</td>
+										
+										<td style="width: 15%;" align="center">
+											<span>15-09-2026</span>
+										</td>
+																				
+										<td>
+											<span>TUE <b>|</b> F11 <b>|</b> 11:40  To  13:10</span>
+										</td>
+										
+										<td>
+											<span>
+												<span><b>Present:</b> 99 <b>| Absent:</b> 11<b>|<br>On Duty:</b> 0 <b>| Medical Leave:</b> 0<b>|<br>Not Attended:</b> 0 <b>| Total:</b> 110</span>
+											</span>
+											
+										</td>
+										
+										<td align="center">
+											
+											
+											<span><b>Posted</b></span>
+											
+										</td>
+																				
+										<td align="center">											
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">													
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">
+											<a class="btn btn-link" onclick="javascript: callAttendancePostView('15-09-2026','F11','2');" href="javascript:void(0);">
+												<span title="View Attendance" class="glyphicon glyphicon-eye-open"></span>
+											</a>
+											
+										</td>
+									</tr><tr style="background-color: #ffffff;" class="odd">
+										<td style="width: 5%;" align="center" class="dtr-control" tabindex="0">
+											<span>7</span>
+										</td>
+										
+										<td style="width: 15%;" align="center">
+											<span>12-09-2026</span>
+										</td>
+																				
+										<td>
+											<span>TUE <b>|</b> F11 <b>|</b> 11:40  To  13:10</span>
+										</td>
+										
+										<td>
+											<span>
+												<span><b>Present:</b> 110 <b>| Absent:</b> 0<b>|<br>On Duty:</b> 0 <b>| Medical Leave:</b> 0<b>|<br>Not Attended:</b> 0 <b>| Total:</b> 110</span>
+											</span>
+											
+										</td>
+										
+										<td align="center">
+											
+											
+											<span><b>Posted</b></span>
+											
+										</td>
+																				
+										<td align="center">											
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">													
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">
+											<a class="btn btn-link" onclick="javascript: callAttendancePostView('12-09-2026','F11','2');" href="javascript:void(0);">
+												<span title="View Attendance" class="glyphicon glyphicon-eye-open"></span>
+											</a>
+											
+										</td>
+									</tr><tr style="background-color: #ffffff;" class="even">
+										<td style="width: 5%;" align="center" class="dtr-control" tabindex="0">
+											<span>8</span>
+										</td>
+										
+										<td style="width: 15%;" align="center">
+											<span>10-09-2026</span>
+										</td>
+																				
+										<td>
+											<span>THU <b>|</b> F12 <b>|</b> 11:40  To  13:10</span>
+										</td>
+										
+										<td>
+											<span>
+												<span><b>Present:</b> 104 <b>| Absent:</b> 6<b>|<br>On Duty:</b> 0 <b>| Medical Leave:</b> 0<b>|<br>Not Attended:</b> 0 <b>| Total:</b> 110</span>
+											</span>
+											
+										</td>
+										
+										<td align="center">
+											
+											
+											<span><b>Posted</b></span>
+											
+										</td>
+																				
+										<td align="center">											
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">													
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">
+											<a class="btn btn-link" onclick="javascript: callAttendancePostView('10-09-2026','F12','2');" href="javascript:void(0);">
+												<span title="View Attendance" class="glyphicon glyphicon-eye-open"></span>
+											</a>
+											
+										</td>
+									</tr><tr style="background-color: #ffffff;" class="odd">
+										<td style="width: 5%;" align="center" class="dtr-control" tabindex="0">
+											<span>9</span>
+										</td>
+										
+										<td style="width: 15%;" align="center">
+											<span>08-09-2026</span>
+										</td>
+																				
+										<td>
+											<span>TUE <b>|</b> F11 <b>|</b> 11:40  To  13:10</span>
+										</td>
+										
+										<td>
+											<span>
+												<span><b>Present:</b> 101 <b>| Absent:</b> 9<b>|<br>On Duty:</b> 0 <b>| Medical Leave:</b> 0<b>|<br>Not Attended:</b> 0 <b>| Total:</b> 110</span>
+											</span>
+											
+										</td>
+										
+										<td align="center">
+											
+											
+											<span><b>Posted</b></span>
+											
+										</td>
+																				
+										<td align="center">											
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">													
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">
+											<a class="btn btn-link" onclick="javascript: callAttendancePostView('08-09-2026','F11','2');" href="javascript:void(0);">
+												<span title="View Attendance" class="glyphicon glyphicon-eye-open"></span>
+											</a>
+											
+										</td>
+									</tr><tr style="background-color: #ffffff;" class="even">
+										<td style="width: 5%;" align="center" class="dtr-control" tabindex="0">
+											<span>10</span>
+										</td>
+										
+										<td style="width: 15%;" align="center">
+											<span>03-09-2026</span>
+										</td>
+																				
+										<td>
+											<span>THU <b>|</b> F12 <b>|</b> 11:40  To  13:10</span>
+										</td>
+										
+										<td>
+											<span>
+												<span><b>Present:</b> 102 <b>| Absent:</b> 8<b>|<br>On Duty:</b> 0 <b>| Medical Leave:</b> 0<b>|<br>Not Attended:</b> 0 <b>| Total:</b> 110</span>
+											</span>
+											
+										</td>
+										
+										<td align="center">
+											
+											
+											<span><b>Posted</b></span>
+											
+										</td>
+																				
+										<td align="center">											
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">													
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">
+											<a class="btn btn-link" onclick="javascript: callAttendancePostView('03-09-2026','F12','2');" href="javascript:void(0);">
+												<span title="View Attendance" class="glyphicon glyphicon-eye-open"></span>
+											</a>
+											
+										</td>
+									</tr><tr style="background-color: #ffffff;" class="odd">
+										<td style="width: 5%;" align="center" class="dtr-control" tabindex="0">
+											<span>11</span>
+										</td>
+										
+										<td style="width: 15%;" align="center">
+											<span>01-09-2026</span>
+										</td>
+																				
+										<td>
+											<span>TUE <b>|</b> F11 <b>|</b> 11:40  To  13:10</span>
+										</td>
+										
+										<td>
+											<span>
+												<span><b>Present:</b> 100 <b>| Absent:</b> 10<b>|<br>On Duty:</b> 0 <b>| Medical Leave:</b> 0<b>|<br>Not Attended:</b> 0 <b>| Total:</b> 110</span>
+											</span>
+											
+										</td>
+										
+										<td align="center">
+											
+											
+											<span><b>Posted</b></span>
+											
+										</td>
+																				
+										<td align="center">											
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">													
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">
+											<a class="btn btn-link" onclick="javascript: callAttendancePostView('01-09-2026','F11','2');" href="javascript:void(0);">
+												<span title="View Attendance" class="glyphicon glyphicon-eye-open"></span>
+											</a>
+											
+										</td>
+									</tr><tr style="background-color: #ffffff;" class="even">
+										<td style="width: 5%;" align="center" class="dtr-control" tabindex="0">
+											<span>12</span>
+										</td>
+										
+										<td style="width: 15%;" align="center">
+											<span>27-08-2026</span>
+										</td>
+																				
+										<td>
+											<span>THU <b>|</b> F12 <b>|</b> 11:40  To  13:10</span>
+										</td>
+										
+										<td>
+											<span>
+												<span><b>Present:</b> 15 <b>| Absent:</b> 95<b>|<br>On Duty:</b> 0 <b>| Medical Leave:</b> 0<b>|<br>Not Attended:</b> 0 <b>| Total:</b> 110</span>
+											</span>
+											
+										</td>
+										
+										<td align="center">
+											
+											
+											<span><b>Posted</b></span>
+											
+										</td>
+																				
+										<td align="center">											
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">													
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">
+											<a class="btn btn-link" onclick="javascript: callAttendancePostView('27-08-2026','F12','2');" href="javascript:void(0);">
+												<span title="View Attendance" class="glyphicon glyphicon-eye-open"></span>
+											</a>
+											
+										</td>
+									</tr><tr style="background-color: #ffffff;" class="odd">
+										<td style="width: 5%;" align="center" class="dtr-control" tabindex="0">
+											<span>13</span>
+										</td>
+										
+										<td style="width: 15%;" align="center">
+											<span>25-08-2026</span>
+										</td>
+																				
+										<td>
+											<span>TUE <b>|</b> F11 <b>|</b> 11:40  To  13:10</span>
+										</td>
+										
+										<td>
+											<span>
+												<span><b>Present:</b> 110 <b>| Absent:</b> 0<b>|<br>On Duty:</b> 0 <b>| Medical Leave:</b> 0<b>|<br>Not Attended:</b> 0 <b>| Total:</b> 110</span>
+											</span>
+											
+										</td>
+										
+										<td align="center">
+											
+											
+											<span><b>Posted</b></span>
+											
+										</td>
+																				
+										<td align="center">											
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">													
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">
+											<a class="btn btn-link" onclick="javascript: callAttendancePostView('25-08-2026','F11','2');" href="javascript:void(0);">
+												<span title="View Attendance" class="glyphicon glyphicon-eye-open"></span>
+											</a>
+											
+										</td>
+									</tr><tr style="background-color: #ffffff;" class="even">
+										<td style="width: 5%;" align="center" class="dtr-control" tabindex="0">
+											<span>14</span>
+										</td>
+										
+										<td style="width: 15%;" align="center">
+											<span>20-08-2026</span>
+										</td>
+																				
+										<td>
+											<span>THU <b>|</b> F12 <b>|</b> 11:40  To  13:10</span>
+										</td>
+										
+										<td>
+											<span>
+												<span><b>Present:</b> 101 <b>| Absent:</b> 6<b>|<br>On Duty:</b> 3 <b>| Medical Leave:</b> 0<b>|<br>Not Attended:</b> 0 <b>| Total:</b> 110</span>
+											</span>
+											
+										</td>
+										
+										<td align="center">
+											
+											
+											<span><b>Posted</b></span>
+											
+										</td>
+																				
+										<td align="center">											
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">													
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">
+											<a class="btn btn-link" onclick="javascript: callAttendancePostView('20-08-2026','F12','2');" href="javascript:void(0);">
+												<span title="View Attendance" class="glyphicon glyphicon-eye-open"></span>
+											</a>
+											
+										</td>
+									</tr><tr style="background-color: #ffffff;" class="odd">
+										<td style="width: 5%;" align="center" class="dtr-control" tabindex="0">
+											<span>15</span>
+										</td>
+										
+										<td style="width: 15%;" align="center">
+											<span>06-08-2026</span>
+										</td>
+																				
+										<td>
+											<span>THU <b>|</b> F12 <b>|</b> 11:40  To  13:10</span>
+										</td>
+										
+										<td>
+											<span>
+												<span><b>Present:</b> 97 <b>| Absent:</b> 12<b>|<br>On Duty:</b> 1 <b>| Medical Leave:</b> 0<b>|<br>Not Attended:</b> 0 <b>| Total:</b> 110</span>
+											</span>
+											
+										</td>
+										
+										<td align="center">
+											
+											
+											<span><b>Posted</b></span>
+											
+										</td>
+																				
+										<td align="center">											
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">													
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">
+											<a class="btn btn-link" onclick="javascript: callAttendancePostView('06-08-2026','F12','2');" href="javascript:void(0);">
+												<span title="View Attendance" class="glyphicon glyphicon-eye-open"></span>
+											</a>
+											
+										</td>
+									</tr><tr style="background-color: #ffffff;" class="even">
+										<td style="width: 5%;" align="center" class="dtr-control" tabindex="0">
+											<span>16</span>
+										</td>
+										
+										<td style="width: 15%;" align="center">
+											<span>04-08-2026</span>
+										</td>
+																				
+										<td>
+											<span>TUE <b>|</b> F11 <b>|</b> 11:40  To  13:10</span>
+										</td>
+										
+										<td>
+											<span>
+												<span><b>Present:</b> 103 <b>| Absent:</b> 3<b>|<br>On Duty:</b> 4 <b>| Medical Leave:</b> 0<b>|<br>Not Attended:</b> 0 <b>| Total:</b> 110</span>
+											</span>
+											
+										</td>
+										
+										<td align="center">
+											
+											
+											<span><b>Posted</b></span>
+											
+										</td>
+																				
+										<td align="center">											
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">													
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">
+											<a class="btn btn-link" onclick="javascript: callAttendancePostView('04-08-2026','F11','2');" href="javascript:void(0);">
+												<span title="View Attendance" class="glyphicon glyphicon-eye-open"></span>
+											</a>
+											
+										</td>
+									</tr><tr style="background-color: #ffffff;" class="odd">
+										<td style="width: 5%;" align="center" class="dtr-control" tabindex="0">
+											<span>17</span>
+										</td>
+										
+										<td style="width: 15%;" align="center">
+											<span>30-07-2026</span>
+										</td>
+																				
+										<td>
+											<span>THU <b>|</b> F12 <b>|</b> 11:40  To  13:10</span>
+										</td>
+										
+										<td>
+											<span>
+												<span><b>Present:</b> 92 <b>| Absent:</b> 4<b>|<br>On Duty:</b> 14 <b>| Medical Leave:</b> 0<b>|<br>Not Attended:</b> 0 <b>| Total:</b> 110</span>
+											</span>
+											
+										</td>
+										
+										<td align="center">
+											
+											
+											<span><b>Posted</b></span>
+											
+										</td>
+																				
+										<td align="center">											
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">													
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">
+											<a class="btn btn-link" onclick="javascript: callAttendancePostView('30-07-2026','F12','2');" href="javascript:void(0);">
+												<span title="View Attendance" class="glyphicon glyphicon-eye-open"></span>
+											</a>
+											
+										</td>
+									</tr><tr style="background-color: #ffffff;" class="even">
+										<td style="width: 5%;" align="center" class="dtr-control" tabindex="0">
+											<span>18</span>
+										</td>
+										
+										<td style="width: 15%;" align="center">
+											<span>28-07-2026</span>
+										</td>
+																				
+										<td>
+											<span>TUE <b>|</b> F11 <b>|</b> 11:40  To  13:10</span>
+										</td>
+										
+										<td>
+											<span>
+												<span><b>Present:</b> 110 <b>| Absent:</b> 0<b>|<br>On Duty:</b> 0 <b>| Medical Leave:</b> 0<b>|<br>Not Attended:</b> 0 <b>| Total:</b> 110</span>
+											</span>
+											
+										</td>
+										
+										<td align="center">
+											
+											
+											<span><b>Posted</b></span>
+											
+										</td>
+																				
+										<td align="center">											
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">													
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">
+											<a class="btn btn-link" onclick="javascript: callAttendancePostView('28-07-2026','F11','2');" href="javascript:void(0);">
+												<span title="View Attendance" class="glyphicon glyphicon-eye-open"></span>
+											</a>
+											
+										</td>
+									</tr><tr style="background-color: #ffffff;" class="odd">
+										<td style="width: 5%;" align="center" class="dtr-control" tabindex="0">
+											<span>19</span>
+										</td>
+										
+										<td style="width: 15%;" align="center">
+											<span>23-07-2026</span>
+										</td>
+																				
+										<td>
+											<span>THU <b>|</b> F12 <b>|</b> 11:40  To  13:10</span>
+										</td>
+										
+										<td>
+											<span>
+												<span><b>Present:</b> 105 <b>| Absent:</b> 5<b>|<br>On Duty:</b> 0 <b>| Medical Leave:</b> 0<b>|<br>Not Attended:</b> 0 <b>| Total:</b> 110</span>
+											</span>
+											
+										</td>
+										
+										<td align="center">
+											
+											
+											<span><b>Posted</b></span>
+											
+										</td>
+																				
+										<td align="center">											
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">													
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">
+											<a class="btn btn-link" onclick="javascript: callAttendancePostView('23-07-2026','F12','2');" href="javascript:void(0);">
+												<span title="View Attendance" class="glyphicon glyphicon-eye-open"></span>
+											</a>
+											
+										</td>
+									</tr><tr style="background-color: #ffffff;" class="even">
+										<td style="width: 5%;" align="center" class="dtr-control" tabindex="0">
+											<span>20</span>
+										</td>
+										
+										<td style="width: 15%;" align="center">
+											<span>21-07-2026</span>
+										</td>
+																				
+										<td>
+											<span>TUE <b>|</b> F11 <b>|</b> 11:40  To  13:10</span>
+										</td>
+										
+										<td>
+											<span>
+												<span><b>Present:</b> 108 <b>| Absent:</b> 2<b>|<br>On Duty:</b> 0 <b>| Medical Leave:</b> 0<b>|<br>Not Attended:</b> 0 <b>| Total:</b> 110</span>
+											</span>
+											
+										</td>
+										
+										<td align="center">
+											
+											
+											<span><b>Posted</b></span>
+											
+										</td>
+																				
+										<td align="center">											
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">													
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">
+											<a class="btn btn-link" onclick="javascript: callAttendancePostView('21-07-2026','F11','2');" href="javascript:void(0);">
+												<span title="View Attendance" class="glyphicon glyphicon-eye-open"></span>
+											</a>
+											
+										</td>
+									</tr><tr style="background-color: #ffffff;" class="odd">
+										<td style="width: 5%;" align="center" class="dtr-control" tabindex="0">
+											<span>21</span>
+										</td>
+										
+										<td style="width: 15%;" align="center">
+											<span>16-07-2026</span>
+										</td>
+																				
+										<td>
+											<span>THU <b>|</b> F12 <b>|</b> 11:40  To  13:10</span>
+										</td>
+										
+										<td>
+											<span>
+												<span><b>Present:</b> 102 <b>| Absent:</b> 8<b>|<br>On Duty:</b> 0 <b>| Medical Leave:</b> 0<b>|<br>Not Attended:</b> 0 <b>| Total:</b> 110</span>
+											</span>
+											
+										</td>
+										
+										<td align="center">
+											
+											
+											<span><b>Posted</b></span>
+											
+										</td>
+																				
+										<td align="center">											
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">													
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">
+											<a class="btn btn-link" onclick="javascript: callAttendancePostView('16-07-2026','F12','2');" href="javascript:void(0);">
+												<span title="View Attendance" class="glyphicon glyphicon-eye-open"></span>
+											</a>
+											
+										</td>
+									</tr><tr style="background-color: #ffffff;" class="even">
+										<td style="width: 5%;" align="center" class="dtr-control" tabindex="0">
+											<span>22</span>
+										</td>
+										
+										<td style="width: 15%;" align="center">
+											<span>14-07-2026</span>
+										</td>
+																				
+										<td>
+											<span>TUE <b>|</b> F11 <b>|</b> 11:40  To  13:10</span>
+										</td>
+										
+										<td>
+											<span>
+												<span><b>Present:</b> 105 <b>| Absent:</b> 4<b>|<br>On Duty:</b> 1 <b>| Medical Leave:</b> 0<b>|<br>Not Attended:</b> 0 <b>| Total:</b> 110</span>
+											</span>
+											
+										</td>
+										
+										<td align="center">
+											
+											
+											<span><b>Posted</b></span>
+											
+										</td>
+																				
+										<td align="center">											
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">													
+											
+											<span title="Locked" class="glyphicon glyphicon-lock"></span>
+										</td>
+										
+										<td align="center">
+											<a class="btn btn-link" onclick="javascript: callAttendancePostView('14-07-2026','F11','2');" href="javascript:void(0);">
+												<span title="View Attendance" class="glyphicon glyphicon-eye-open"></span>
+											</a>
+											
+										</td>
+									</tr></tbody>
+
+								</table></div>
+							</div>
+														
+						</form>					
+					</div>
+				</div>
+			</div>
+			
+		</section>
+	</div>
+		
+	<script type="text/javascript">
+	/*<![CDATA[*/
+
+		callMessage();
+				
+		$(document).ready(function() {
+			
+		    $('#ClassDetailDataTable').dataTable({
+		    	  "autoWidth": false,
+		    	  "bFilter": false, 
+		    	  "bInfo" : false,
+		    	  "bPaginate": false,
+		    	  "bLengthChange": false,
+		    	  "ordering": false,
+				  "columnDefs": [
+				      {"width": "25%", "targets": 0},	//Class Group
+				      {"width": "25%", "targets": 1},	//Course Detail
+		   		      {"width": "25%", "targets": 2},	//Class Detail
+		   		      {"width": "25%", "targets": 3},	//Attendance Type
+		   	     ]
+		   	});
+		    
+		    $('#AttendanceDateDetailDataTable').dataTable({
+		    	"autoWidth": false,
+		    	"bFilter": true, 
+		    	"bInfo" : false,
+		    	"bPaginate": false,
+		    	"bLengthChange": false,
+		    	"ordering": false,
+				"columnDefs": [
+				    {"width": "5%", "targets": 0},	//Sl.No.
+				    {"width": "15%", "targets": 1},	//Attendance Date
+		   		    {"width": "25%", "targets": 2},	//Attendance Detail
+		   		    {"width": "25%", "targets": 3},	//Attendance Student Count
+		   			{"width": "15%", "targets": 4},	//Attendance Status
+		   			{"width": "5%", "targets": 5},	//Add/ Modify
+		   			{"width": "5%", "targets": 6},	//Bulk Post
+		   			{"width": "5%", "targets": 7},	//View
+				]
+		   	});
+		});
+					
+		function callMessage()
+		{
+			var message = $("#message").val();
+			$("#message").val("");
+						
+			if ((message != null) && (message != ""))
+			{
+				swal(message);
+			}
+		}
+		
+		function callCourseDetailDisplay(dpType)
+		{	
+			if (dpType == 1)
+			{
+				document.getElementById("courseDetailIconShow").style.display = "none";
+				document.getElementById("courseDetailIconNoShow").style.display = "block";
+				document.getElementById("courseDetailShow").style.display = "block";
+			}
+			else
+			{
+				document.getElementById("courseDetailIconShow").style.display = "block";
+				document.getElementById("courseDetailIconNoShow").style.display = "none";
+				document.getElementById("courseDetailShow").style.display = "none";
+			}
+		}
+		
+		function callClassDetailDisplay(dpType)
+		{	
+			if (dpType == 1)
+			{
+				document.getElementById("classDetailIconShow").style.display = "none";
+				document.getElementById("classDetailIconNoShow").style.display = "block";
+				document.getElementById("classDetailShow").style.display = "block";
+			}
+			else
+			{
+				document.getElementById("classDetailIconShow").style.display = "block";
+				document.getElementById("classDetailIconNoShow").style.display = "none";
+				document.getElementById("classDetailShow").style.display = "none";
+			}
+		}
+							
+		function callAttendancePost(attnDate, attnSlot, attnProcessType)
+		{
+			var id = "100243";
+			var now = new Date();
+			var csrfName = "_csrf";
+            var csrfValue = "d628fedd-9b39-42f5-9bac-764c0647aa94";
+			var semSubId = $("#semesterSubId").val();
+			var courseId = $("#courseId").val();
+			var courseType = $("#courseType").val();
+			var classId = $("#classId").val();
+						
+			var params = csrfName + "=" + csrfValue +"&semesterSubId="+ semSubId +"&courseId="+ courseId 
+							+"&courseType="+ courseType +"&classId="+ classId
+							+"&postDate="+ attnDate +"&attendanceSlot="+ attnSlot
+							+"&attendanceProcessType="+ attnProcessType
+							+"&authorizedID="+ id +"&x="+ now.toUTCString();
+			
+			$.blockUI({
+				message : '<img src="assets/img/482.GIF"> loading... Just a moment...'
+			});
+			
+			$.ajax({
+				url : "academics/common/doAttendancePost",
+				type : "POST",
+				data : params,
+				success : function(response) {
+					$("#main-section").html(response);
+					$.unblockUI();
+				},
+				error : function(jqXHR, textStatus, errorMessage) {
+					$.unblockUI();
+				}
+			});
+			
+			$("html, body").animate({
+				scrollTop : 0
+			},  "slow");
+		}
+		
+		function callAttendancePostView(attnDate, attnSlot)
+		{
+			var id = "100243";
+			var now = new Date();
+			var csrfName = "_csrf";
+            var csrfValue = "d628fedd-9b39-42f5-9bac-764c0647aa94";
+			var semSubId = $("#semesterSubId").val();
+			var courseId = $("#courseId").val();
+			var courseType = $("#courseType").val();
+			var classId = $("#classId").val();
+						
+			var params = csrfName + "=" + csrfValue +"&semesterSubId="+ semSubId +"&courseId="+ courseId 
+							+"&courseType="+ courseType +"&classId="+ classId
+							+"&postDate="+ attnDate +"&attendanceSlot="+ attnSlot
+							+"&authorizedID="+ id +"&x="+ now.toUTCString();
+			
+			$.blockUI({
+				message : '<img src="assets/img/482.GIF"> loading... Just a moment...'
+			});
+			
+			$.ajax({
+				url : "academics/common/doAttendancePostView",
+				type : "POST",
+				data : params,
+				success : function(response) {
+					$("#main-section").html(response);
+					$.unblockUI();
+				},
+				error : function(jqXHR, textStatus, errorMessage) {
+					$.unblockUI();
+				}
+			});
+		}
+		
+		function callAttendanceHome()
+		{
+			var id = "100243";
+			var now = new Date();
+			var csrfName = "_csrf";
+            var csrfValue = "d628fedd-9b39-42f5-9bac-764c0647aa94";
+			var semSubId = $("#semesterSubId").val();
+			
+			var params =csrfName + "=" + csrfValue +"&semesterSubId="+ semSubId 
+							+"&authorizedID="+ id +"&x="+ now.toUTCString();
+			
+			$.blockUI({
+				message : '<img src="assets/img/482.GIF"> loading... Just a moment...'
+			});
+			
+			$.ajax({
+				url : "academics/common/doAttendanceCourse",
+				type : "POST",
+				data : params,
+				success : function(response) {
+					$("#main-section").html(response);
+					$.unblockUI();
+				},
+				error : function(jqXHR, textStatus, errorMessage) {
+					$.unblockUI();
+				}
+			});
+			
+			$("html, body").animate({
+				scrollTop : 0
+			},  "slow");
+		}
+
+	/*]]>*/
+	</script>
+
+
+
+</div>
+		
+	<script type="text/javascript">
+	/*<![CDATA[*/
+
+		callMessage();
+	
+		$(document).ready(function() {
+			
+		    $('#ClassDetailDataTable').dataTable({
+		    	  "autoWidth": false,
+		    	  "bFilter": false, 
+		    	  "bInfo" : false,
+		    	  "bPaginate": false,
+		    	  "bLengthChange": false,
+		    	  "ordering": false,
+				  'columnDefs': [
+				      {"width": "5%", "targets": 0},	//Sl.No.
+				      {"width": "20%", "targets": 1},	//Class Group
+		   		      {"width": "25%", "targets": 2},	//Course Detail
+		   		      {"width": "25%", "targets": 3},	//Class Detail
+		   		      {"width": "15%", "targets": 4},	//Attendance Type
+		   		      {"width": "10%", "targets": 5}	//Process
+		   	     ]
+		   	});
+		});
+		
+		function callMessage()
+		{
+			var message = $("#message").val();
+			$("#message").val("");
+						
+			if ((message != null) && (message != ""))
+			{
+				swal(message);
+			}
+		}
+					
+		function callAttendanceCourse()
+		{
+			var id = "100243";
+			var now = new Date();
+			var csrfName = "_csrf";
+            var csrfValue = "d628fedd-9b39-42f5-9bac-764c0647aa94";
+			var semSubId = $("#semesterSubId").val();
+			
+			var params = csrfName + "=" + csrfValue +"&semesterSubId="+ semSubId 
+							+"&authorizedID="+ id +"&x="+ now.toUTCString();
+			
+			$.blockUI({
+				message : '<img src="assets/img/482.GIF"> loading... Just a moment...'
+			});
+			
+			$.ajax({
+				url : "academics/common/doAttendanceCourse",
+				type : "POST",
+				data : params,
+				success : function(response) {
+					$("#main-section").html(response);
+					$.unblockUI();
+				},
+				error : function(jqXHR, textStatus, errorMessage) {
+					$.unblockUI();
+				}
+			});
+		}
+		
+		function callCourseDetailDisplay(dpType, id)
+		{	
+			if (dpType == 1)
+			{
+				document.getElementById("courseDetailIconShow_"+ id).style.display = "none";
+				document.getElementById("courseDetailIconNoShow_"+ id).style.display = "block";
+				document.getElementById("courseDetailShow_"+ id).style.display = "block";
+			}
+			else
+			{
+				document.getElementById("courseDetailIconShow_"+ id).style.display = "block";
+				document.getElementById("courseDetailIconNoShow_"+ id).style.display = "none";
+				document.getElementById("courseDetailShow_"+ id).style.display = "none";
+			}
+		}
+		
+		function callClassDetailDisplay(dpType, id)
+		{	
+			if (dpType == 1)
+			{
+				document.getElementById("classDetailIconShow_"+ id).style.display = "none";
+				document.getElementById("classDetailIconNoShow_"+ id).style.display = "block";
+				document.getElementById("classDetailShow_"+ id).style.display = "block";
+			}
+			else
+			{
+				document.getElementById("classDetailIconShow_"+ id).style.display = "block";
+				document.getElementById("classDetailIconNoShow_"+ id).style.display = "none";
+				document.getElementById("classDetailShow_"+ id).style.display = "none";
+			}
+		}
+		
+		function callProcessAttendance(courseId, courseType, classId)
+		{
+			var id = "100243";
+			var now = new Date();
+			var csrfName = "_csrf";
+            var csrfValue = "d628fedd-9b39-42f5-9bac-764c0647aa94";
+			var semSubId = $("#semesterSubId").val();
+			
+			var params = csrfName + "=" + csrfValue +"&semesterSubId="+ semSubId +"&courseId="+ courseId 
+			 				+"&courseType="+ courseType +"&classId="+ classId
+							+"&authorizedID="+ id +"&x="+ now.toUTCString();
+			
+			$.blockUI({
+				message : '<img src="assets/img/482.GIF"> loading... Just a moment...'
+			});
+			
+			$.ajax({
+				url : "academics/common/doAttendanceProcess",
+				type : "POST",
+				data : params,
+				success : function(response) {
+					$("#main-section").html(response);
+					$.unblockUI();
+				},
+				error : function(jqXHR, textStatus, errorMessage) {
+					$.unblockUI();
+				}
+			});
+			
+			$("html, body").animate({
+				scrollTop : 0
+			},  "slow");
+		}
+		
+	/*]]>*/
+	</script>
+
+
+</div>
+                                    <div class="w-100 pb-5 d-block" id="b3endmarker">
+                                        <br><br><br><br><br><br>
+                                    </div>
+                                </div>
+
+                                <div class="vh-100 overflow-auto pb-5 mb-5 me-0 noshow" id="b5wrapper">
+                                    <div class="w-100 mb-5" id="b5-pagewrapper"></div>
+                                    <div class="w-100 pb-5" id="b5endmarker">
+                                        <br><br><br><br><br><br>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="offcanvas offcanvas-start" tabindex="-1" id="expandedSideBar" aria-labelledby="expandedSideBarLabel" aria-hidden="true" style="visibility: hidden;">
+                            <div class="offcanvas-header headerBackgroundColor text-light">
+                                <h5 class="offcanvas-title" id="expandedSideBarLabel">VTOP Menu</h5>
+                                <button type="button" class="text-reset bg-transparent border-0 h4" data-bs-dismiss="offcanvas" aria-label="Close">☰
+                                </button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <div>
+                                    
+
+
+
+        
+
+            
+                <div class="fw-bold h6 menuFontStyle"><a data-url="hrms/contactDetails" class="dropdown-item menuFontStyle textColor2 systemB5MainMenu *backColor*" href="javascript:void(0);"><i class="fa fa-phone-square iconSpace "></i> Contact Us</a></div>
+            
+                <div class="accordion" id="accordianMenuHead_1001"><div class="accordion-item border-0"><div class="accordion-header" id="acMenuItemHDG0011"><button class="accordion-button collapsed py-2 ps-3 menuFontStyle bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acMenuCollapseHDG0011" aria-expanded="false" aria-controls="acMenuCollapseHDG0011"> <i class="fa fa-graduation-cap iconSpaceHeader "></i><span class="ps-0 ms-0 fw-bold textColor1">  Academics </span></button></div><div id="acMenuCollapseHDG0011" class="accordion-collapse collapse" aria-labelledby="acMenuItemHDG0011" data-bs-parent="#accordianMenuHead_1001"><div class="accordion-body py-0">
+            
+                <a data-url="hrms/openHoursOfFaculty" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Open Hours</a>
+            
+                <a data-url="academics/common/WorkLoad" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Work Load</a>
+            
+                <a data-url="examinations/markOptionConfiguration/Initial" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Mark Configuration</a>
+            
+                <div class="accordion" id="accordianMenuHead_1002"><div class="accordion-item border-0"><div class="accordion-header" id="acMenuItemACD0004"><button class="accordion-button collapsed py-2 ps-3 menuFontStyle bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acMenuCollapseACD0004" aria-expanded="false" aria-controls="acMenuCollapseACD0004"> &nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpaceHeader "></i><span class="ps-0 ms-0 fw-bold textColor1">  Course </span></button></div><div id="acMenuCollapseACD0004" class="accordion-collapse collapse" aria-labelledby="acMenuItemACD0004" data-bs-parent="#accordianMenuHead_1002"><div class="accordion-body py-0">
+            
+                <a data-url="academics/common/CoursePageProcess" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Course Page</a>
+            
+                <a data-url="academics/common/CourseSyllabusDownload" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Course Syllabus</a>
+            
+                <a data-url="academics/common/CoursePageView" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Course Page View</a>
+            
+                </div></div></div><div class="accordion-item border-0"><div class="accordion-header" id="acMenuItemACD0039"><button class="accordion-button collapsed py-2 ps-3 menuFontStyle bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acMenuCollapseACD0039" aria-expanded="false" aria-controls="acMenuCollapseACD0039"> &nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpaceHeader "></i><span class="ps-0 ms-0 fw-bold textColor1">  Attendance </span></button></div><div id="acMenuCollapseACD0039" class="accordion-collapse collapse" aria-labelledby="acMenuItemACD0039" data-bs-parent="#accordianMenuHead_1002"><div class="accordion-body py-0">
+            
+                <a data-url="academics/common/Attendance" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Roster</a>
+            
+                <a data-url="academics/common/FacultyAttendanceReport" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Attendance Report</a>
+            
+                </div></div></div><div class="accordion-item border-0"><div class="accordion-header" id="acMenuItemACD0179"><button class="accordion-button collapsed py-2 ps-3 menuFontStyle bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acMenuCollapseACD0179" aria-expanded="false" aria-controls="acMenuCollapseACD0179"> &nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpaceHeader "></i><span class="ps-0 ms-0 fw-bold textColor1">  Feedback </span></button></div><div id="acMenuCollapseACD0179" class="accordion-collapse collapse" aria-labelledby="acMenuItemACD0179" data-bs-parent="#accordianMenuHead_1002"><div class="accordion-body py-0">
+            
+                <a data-url="academics/common/Feedback" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Student Feedback</a>
+            
+                <a data-url="academics/PJTReg/loadRegistrationPage" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Registration</a>
+            
+                </div></div></div></div></div></div></div><div class="accordion-item border-0"><div class="accordion-header" id="acMenuItemHDG0031"><button class="accordion-button collapsed py-2 ps-3 menuFontStyle bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acMenuCollapseHDG0031" aria-expanded="false" aria-controls="acMenuCollapseHDG0031"> <i class="fa fa-cogs iconSpaceHeader "></i><span class="ps-0 ms-0 fw-bold textColor1">  Evaluations </span></button></div><div id="acMenuCollapseHDG0031" class="accordion-collapse collapse" aria-labelledby="acMenuItemHDG0031" data-bs-parent="#accordianMenuHead_1001"><div class="accordion-body py-0">
+            
+                <a data-url="thervu/markEntryCourse" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Mark Entry</a>
+            
+                <a data-url="examinations/arrearRegistration/ArrearMarkEntry/LoadRARMarkEntryPage" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Arrear/SUP/GI Mark Entry</a>
+            
+                <a data-url="examinations/arrearRegistration/ArrearReEvalMarkEntry/navigateToMainPage" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Arrear Rev Mark Entry</a>
+            
+                <a data-url="examinations/arrearRegistration/doStudentArrearGradeAdminView" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Arrear Grades</a>
+            
+                <div class="accordion" id="accordianMenuHead_1003"><div class="accordion-item border-0"><div class="accordion-header" id="acMenuItemHDG0032"><button class="accordion-button collapsed py-2 ps-3 menuFontStyle bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acMenuCollapseHDG0032" aria-expanded="false" aria-controls="acMenuCollapseHDG0032"> &nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpaceHeader "></i><span class="ps-0 ms-0 fw-bold textColor1">  Invigilation </span></button></div><div id="acMenuCollapseHDG0032" class="accordion-collapse collapse" aria-labelledby="acMenuItemHDG0032" data-bs-parent="#accordianMenuHead_1003"><div class="accordion-body py-0">
+            
+                <a data-url="examinations/invigilation/invigilationDutyExchange" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Duty Exchange</a>
+            
+                <a data-url="examinations/invigilation/InvigilationDetailsFacultyView" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Duty View</a>
+            
+                <a data-url="examinations/arrearRegistration/qpKey/LoadRARQPKeyFacultyUploadPage" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Arrear QP and Key Upload</a>
+            
+                </div></div></div></div></div></div></div><div class="accordion-item border-0"><div class="accordion-header" id="acMenuItemHDG0084"><button class="accordion-button collapsed py-2 ps-3 menuFontStyle bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acMenuCollapseHDG0084" aria-expanded="false" aria-controls="acMenuCollapseHDG0084"> <i class="fa fa-user iconSpaceHeader "></i><span class="ps-0 ms-0 fw-bold textColor1">  Student Info </span></button></div><div id="acMenuCollapseHDG0084" class="accordion-collapse collapse" aria-labelledby="acMenuItemHDG0084" data-bs-parent="#accordianMenuHead_1001"><div class="accordion-body py-0">
+            
+                <a data-url="admissions/dynamicStudentProfile" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Student Profile Info</a>
+            
+                <a data-url="admissions/StudentStatusPage" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Student Lock Status</a>
+            
+                <a data-url="academics/common/StudentCurriculum" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Curriculum</a>
+            
+                <a data-url="academics/common/AdminTimeTable" class="dropdown-item menuFontStyle textColor2 systemB5MainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Registration</a>
+            
+                <a data-url="academics/common/AdminViewStudentAttendance" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Attendance</a>
+            
+                <a data-url="examinations/AdminStudentMarkView" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Mark Details</a>
+            
+                <a data-url="examinations/AdminExamSchedule" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Exam Schedule </a>
+            
+                <a data-url="examinations/examGradeView/doStudentGradeAdminView" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Grade Details</a>
+            
+                <a data-url="examinations/examGradeView/AdminGradeHistoryViewPageControl" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Grade History</a>
+            
+                <a data-url="examinations/OfflineStudExamSchedule" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Offline Exam Schedule</a>
+            
+                </div></div></div><div class="accordion-item border-0"><div class="accordion-header" id="acMenuItemHDG0060"><button class="accordion-button collapsed py-2 ps-3 menuFontStyle bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acMenuCollapseHDG0060" aria-expanded="false" aria-controls="acMenuCollapseHDG0060"> <i class="fa fa-paw iconSpaceHeader "></i><span class="ps-0 ms-0 fw-bold textColor1">  Proctor </span></button></div><div id="acMenuCollapseHDG0060" class="accordion-collapse collapse" aria-labelledby="acMenuItemHDG0060" data-bs-parent="#accordianMenuHead_1001"><div class="accordion-body py-0">
+            
+                <a data-url="hostels/proctor/leave/approval/1" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Leave Approval</a>
+            
+                <a data-url="proctor/viewProctorStudentDetails" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Proctee Dashboard</a>
+            
+                <a data-url="proctor/viewStudentMessage" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Proctee Message</a>
+            
+                <a data-url="hostels/late/hour/faculty/approval/1" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Late Hour Request</a>
+            
+                </div></div></div><div class="accordion-item border-0"><div class="accordion-header" id="acMenuItemHDG0062"><button class="accordion-button collapsed py-2 ps-3 menuFontStyle bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acMenuCollapseHDG0062" aria-expanded="false" aria-controls="acMenuCollapseHDG0062"> <i class="fa fa-bank iconSpaceHeader "></i><span class="ps-0 ms-0 fw-bold textColor1">  Research </span></button></div><div id="acMenuCollapseHDG0062" class="accordion-collapse collapse" aria-labelledby="acMenuItemHDG0062" data-bs-parent="#accordianMenuHead_1001"><div class="accordion-body py-0">
+            
+                <a data-url="research/researchProfile2Guide" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Profile Approval</a>
+            
+                <a data-url="research/researchStudentList" class="dropdown-item menuFontStyle textColor2 systemB5MainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Onroll Scholars</a>
+            
+                <a data-url="research/courseCatalogByGuide" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Course Catalog</a>
+            
+                <div class="accordion" id="accordianMenuHead_1004"><div class="accordion-item border-0"><div class="accordion-header" id="acMenuItemRSH0050"><button class="accordion-button collapsed py-2 ps-3 menuFontStyle bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acMenuCollapseRSH0050" aria-expanded="false" aria-controls="acMenuCollapseRSH0050"> &nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpaceHeader "></i><span class="ps-0 ms-0 fw-bold textColor1">  Coursework Allocation </span></button></div><div id="acMenuCollapseRSH0050" class="accordion-collapse collapse" aria-labelledby="acMenuItemRSH0050" data-bs-parent="#accordianMenuHead_1004"><div class="accordion-body py-0">
+            
+                <a data-url="research/CourseAllocationByGuide" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Scholars-Pre 2018</a>
+            
+                <a data-url="research/CourseAllocationByGuideFrom18" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Scholars-2018 Onwards</a>
+            
+                <div class="accordion" id="accordianMenuHead_1005"><div class="accordion-item border-0"><div class="accordion-header" id="acMenuItemRSH0087"><button class="accordion-button collapsed py-2 ps-3 menuFontStyle bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acMenuCollapseRSH0087" aria-expanded="false" aria-controls="acMenuCollapseRSH0087"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpaceHeader "></i><span class="ps-0 ms-0 fw-bold textColor1">  Seed Grant Project </span></button></div><div id="acMenuCollapseRSH0087" class="accordion-collapse collapse" aria-labelledby="acMenuItemRSH0087" data-bs-parent="#accordianMenuHead_1005"><div class="accordion-body py-0">
+            
+                <a data-url="research/seedGrantProjectApplication" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Seed Grant Application</a>
+            
+                <a data-url="research/seed/pptEvaluation" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> PPT for Evaluation</a>
+            
+                <a data-url="research/seed/uploads" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Project Uploads</a>
+            
+                </div></div></div></div></div></div></div></div></div></div></div><div class="accordion-item border-0"><div class="accordion-header" id="acMenuItemHDG0100"><button class="accordion-button collapsed py-2 ps-3 menuFontStyle bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acMenuCollapseHDG0100" aria-expanded="false" aria-controls="acMenuCollapseHDG0100"> <i class="fa fa-book iconSpaceHeader "></i><span class="ps-0 ms-0 fw-bold textColor1">  CITL FDP </span></button></div><div id="acMenuCollapseHDG0100" class="accordion-collapse collapse" aria-labelledby="acMenuItemHDG0100" data-bs-parent="#accordianMenuHead_1001"><div class="accordion-body py-0">
+            
+                <a data-url="events/ASC/doLoadFDPRequistionPage" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> FDP Requisition Form</a>
+            
+                <a data-url="events/ASC/EventsRegistration" class="dropdown-item menuFontStyle textColor2 systemB5MainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> FDP Registration</a>
+            
+                <a data-url="events/ASC/EventsCertificateDownload" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Participant Certificate</a>
+            
+                <a data-url="events/ASC/getAscCoordinatorCertificatePage" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Coordinator Certificate</a>
+            
+                <a data-url="events/ASC/getInternalResourceCertificatePage" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Resource Person Certificate</a>
+            
+                <a data-url="events/ASC/loadTLCECoordinatorRequisitionPage" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Event Recommendation</a>
+            
+                </div></div></div><div class="accordion-item border-0"><div class="accordion-header" id="acMenuItemHDG0101"><button class="accordion-button collapsed py-2 ps-3 menuFontStyle bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acMenuCollapseHDG0101" aria-expanded="false" aria-controls="acMenuCollapseHDG0101"> <i class="fa fa-trophy iconSpaceHeader "></i><span class="ps-0 ms-0 fw-bold textColor1">  SW Events </span></button></div><div id="acMenuCollapseHDG0101" class="accordion-collapse collapse" aria-labelledby="acMenuItemHDG0101" data-bs-parent="#accordianMenuHead_1001"><div class="accordion-body py-0">
+            
+                <a data-url="event/swf/admin/loadCCEnrollmentView" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Club/Chapter Enrollment View</a>
+            
+                <a data-url="event/swf/loadEventRegistration" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Event Registration</a>
+            
+                <a data-url="event/swf/loadRequisitionPage" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Event Requisition</a>
+            
+                <a data-url="event/swf/loadEventAttendance" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Event Attendance</a>
+            
+                <a data-url="event/swf/loadRequisitionList" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Event Approval</a>
+            
+                <a data-url="event/swf/loadEventParticipants" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Event Achievers</a>
+            
+                <a data-url="event/swf/loadBoardMembersInfo" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Add Board Members</a>
+            
+                <a data-url="event/swf/loadEventSummaryReportPage" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Event Summary Report</a>
+            
+                <a data-url="event/swf/certificate/loadGuestRsrcDownloadPage" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Resource/Guest Certificate</a>
+            
+                <a data-url="event/swf/admin/loadReportPage" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Event Reports</a>
+            
+                <a data-url="events/swf/downloadReport" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Student Club Registration Details</a>
+            
+                </div></div></div><div class="accordion-item border-0"><div class="accordion-header" id="acMenuItemHDG0027"><button class="accordion-button collapsed py-2 ps-3 menuFontStyle bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acMenuCollapseHDG0027" aria-expanded="false" aria-controls="acMenuCollapseHDG0027"> <i class="fa fa-user-plus iconSpaceHeader "></i><span class="ps-0 ms-0 fw-bold textColor1">  Info Corner </span></button></div><div id="acMenuCollapseHDG0027" class="accordion-collapse collapse" aria-labelledby="acMenuItemHDG0027" data-bs-parent="#accordianMenuHead_1001"><div class="accordion-body py-0">
+            
+                <a data-url="academics/common/CalendarPreview" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Academics Calendar</a>
+            
+                </div></div></div><div class="accordion-item border-0"><div class="accordion-header" id="acMenuItemHDG0026"><button class="accordion-button collapsed py-2 ps-3 menuFontStyle bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acMenuCollapseHDG0026" aria-expanded="false" aria-controls="acMenuCollapseHDG0026"> <i class="fa fa-cog iconSpaceHeader "></i><span class="ps-0 ms-0 fw-bold textColor1">  General </span></button></div><div id="acMenuCollapseHDG0026" class="accordion-collapse collapse" aria-labelledby="acMenuItemHDG0026" data-bs-parent="#accordianMenuHead_1001"><div class="accordion-body py-0">
+            
+                <a data-url="academics/common/FaqPreview" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> FAQ</a>
+            
+                <a data-url="spotlight/spotlightViewOld" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Spotlight</a>
+            
+                </div></div></div><div class="accordion-item border-0"><div class="accordion-header" id="acMenuItemHDG0038"><button class="accordion-button collapsed py-2 ps-3 menuFontStyle bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acMenuCollapseHDG0038" aria-expanded="false" aria-controls="acMenuCollapseHDG0038"> <i class="fa fa-home iconSpaceHeader "></i><span class="ps-0 ms-0 fw-bold textColor1">  Human Resource </span></button></div><div id="acMenuCollapseHDG0038" class="accordion-collapse collapse" aria-labelledby="acMenuItemHDG0038" data-bs-parent="#accordianMenuHead_1001"><div class="accordion-body py-0">
+            
+                <a data-url="hrms/viewPayslipDetails" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> View Payslip</a>
+            
+                <a data-url="hrms/employeeSearch" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Employee Search</a>
+            
+                <a data-url="hrms/mySchoolCentreEmployees" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> My School/Centre Employees</a>
+            
+                <a data-url="hrms/employeeMobileNumberUpdation" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Mobile Number Updation</a>
+            
+                <a data-url="hrms/downloadMediClaimCard" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Download Mediclaim E-Card</a>
+            
+                </div></div></div><div class="accordion-item border-0"><div class="accordion-header" id="acMenuItemHDG0003"><button class="accordion-button collapsed py-2 ps-3 menuFontStyle bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acMenuCollapseHDG0003" aria-expanded="false" aria-controls="acMenuCollapseHDG0003"> <i class="fa fa-shield iconSpaceHeader "></i><span class="ps-0 ms-0 fw-bold textColor1">  Events </span></button></div><div id="acMenuCollapseHDG0003" class="accordion-collapse collapse" aria-labelledby="acMenuItemHDG0003" data-bs-parent="#accordianMenuHead_1001"><div class="accordion-body py-0">
+            
+                <a data-url="events/General/doLoadGeneralCertificatePage" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> POSH Certificate</a>
+            
+                </div></div></div><div class="accordion-item border-0"><div class="accordion-header" id="acMenuItemTRA1001"><button class="accordion-button collapsed py-2 ps-3 menuFontStyle bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acMenuCollapseTRA1001" aria-expanded="false" aria-controls="acMenuCollapseTRA1001"> <i class="fa fa-user-plus iconSpaceHeader "></i><span class="ps-0 ms-0 fw-bold textColor1">  Campus Services </span></button></div><div id="acMenuCollapseTRA1001" class="accordion-collapse collapse" aria-labelledby="acMenuItemTRA1001" data-bs-parent="#accordianMenuHead_1001"><div class="accordion-body py-0">
+            
+                <div class="accordion" id="accordianMenuHead_1006"><div class="accordion-item border-0"><div class="accordion-header" id="acMenuItemTRA1007"><button class="accordion-button collapsed py-2 ps-3 menuFontStyle bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acMenuCollapseTRA1007" aria-expanded="false" aria-controls="acMenuCollapseTRA1007"> &nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpaceHeader "></i><span class="ps-0 ms-0 fw-bold textColor1">  Transport </span></button></div><div id="acMenuCollapseTRA1007" class="accordion-collapse collapse" aria-labelledby="acMenuItemTRA1007" data-bs-parent="#accordianMenuHead_1006"><div class="accordion-body py-0">
+            
+                <a data-url="campusServices/requisitionDashboard" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Transport Requisition Form</a>
+            
+                <a data-url="campusService/transportServiceAdmin" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Transport Requisition Approval</a>
+            
+                <a data-url="campusServices/transportReportingApprovedReport" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Transport Reporting Approved Report</a>
+            
+                </div></div></div><div class="accordion-item border-0"><div class="accordion-header" id="acMenuItemTRA1008"><button class="accordion-button collapsed py-2 ps-3 menuFontStyle bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acMenuCollapseTRA1008" aria-expanded="false" aria-controls="acMenuCollapseTRA1008"> &nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpaceHeader "></i><span class="ps-0 ms-0 fw-bold textColor1">  Refreshment </span></button></div><div id="acMenuCollapseTRA1008" class="accordion-collapse collapse" aria-labelledby="acMenuItemTRA1008" data-bs-parent="#accordianMenuHead_1006"><div class="accordion-body py-0">
+            
+                <a data-url="campusServices/refreshmentRequisitionDashBoard" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Refreshment Requisition Form</a>
+            
+                <a data-url="campusService/refreshmentRequisitionApproval" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Refreshment Requisition Approval</a>
+            
+                </div></div></div><div class="accordion-item border-0"><div class="accordion-header" id="acMenuItemTRA1013"><button class="accordion-button collapsed py-2 ps-3 menuFontStyle bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acMenuCollapseTRA1013" aria-expanded="false" aria-controls="acMenuCollapseTRA1013"> &nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpaceHeader "></i><span class="ps-0 ms-0 fw-bold textColor1">  Finance Services </span></button></div><div id="acMenuCollapseTRA1013" class="accordion-collapse collapse" aria-labelledby="acMenuItemTRA1013" data-bs-parent="#accordianMenuHead_1006"><div class="accordion-body py-0">
+            
+                <a data-url="campusService/AdvanceRequisitionForm" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Advance Request</a>
+            
+                <a data-url="campusService/advanceReporterApproval" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Advance Request Approval</a>
+            
+                <a data-url="campusService/Reimbursement" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Reimbursement Request</a>
+            
+                <a data-url="campusService/ReimbursementReportingApproval" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Reimbursement Reporting Approval</a>
+            
+                </div></div></div><div class="accordion-item border-0"><div class="accordion-header" id="acMenuItemGST001"><button class="accordion-button collapsed py-2 ps-3 menuFontStyle bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acMenuCollapseGST001" aria-expanded="false" aria-controls="acMenuCollapseGST001"> &nbsp;&nbsp;&nbsp;<i class="fa fa-home iconSpaceHeader "></i><span class="ps-0 ms-0 fw-bold textColor1">  Guest Room Requestion </span></button></div><div id="acMenuCollapseGST001" class="accordion-collapse collapse" aria-labelledby="acMenuItemGST001" data-bs-parent="#accordianMenuHead_1006"><div class="accordion-body py-0">
+            
+                <a data-url="book/room/for/guests" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Guest Room Requestion</a>
+            
+                <a data-url="approval/screen/for/guesthouse/booking/by/section/head" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Guest Room Approval</a>
+            
+                <a data-url="guestHouseBooking/loadReportPage" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Guest Room Reports</a>
+            
+                </div></div></div></div></div></div></div><div class="accordion-item border-0"><div class="accordion-header" id="acMenuItemHLP0019"><button class="accordion-button collapsed py-2 ps-3 menuFontStyle bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acMenuCollapseHLP0019" aria-expanded="false" aria-controls="acMenuCollapseHLP0019"> <i class="fa fa-book iconSpaceHeader "></i><span class="ps-0 ms-0 fw-bold textColor1">  Help </span></button></div><div id="acMenuCollapseHLP0019" class="accordion-collapse collapse" aria-labelledby="acMenuItemHLP0019" data-bs-parent="#accordianMenuHead_1001"><div class="accordion-body py-0">
+            
+                <a data-url="ticketrise/createTicket" class="dropdown-item menuFontStyle textColor2 systemMainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-dot-circle-o iconSpace "></i> Support &amp; Complaints</a>
+            
+                </div></div></div><div class="accordion-item border-0"><div class="accordion-header" id="acMenuItemCNTXXX0"><button class="accordion-button collapsed py-2 ps-3 menuFontStyle bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#acMenuCollapseCNTXXX0" aria-expanded="false" aria-controls="acMenuCollapseCNTXXX0"> <i class="fa fa-lock iconSpaceHeader "></i><span class="ps-0 ms-0 fw-bold textColor1">  My Account </span></button></div><div id="acMenuCollapseCNTXXX0" class="accordion-collapse collapse" aria-labelledby="acMenuItemCNTXXX0" data-bs-parent="#accordianMenuHead_1001"><div class="accordion-body py-0">
+            
+                <a data-url="controlpanel/ChangePassword" class="dropdown-item menuFontStyle textColor2 systemB5MainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-lock iconSpace "></i> Change Password</a>
+            
+                <a data-url="controlpanel/SetDefaultRole" class="dropdown-item menuFontStyle textColor2 systemB5MainMenu " href="javascript:void(0);">&nbsp;&nbsp;&nbsp;<i class="fa fa-lock iconSpace "></i> Set Default Role</a></div></div></div></div>
+            
+
+        
+
+
+        <script>
+            /*<![CDATA[*/
+
+            var actionButton = document.getElementsByClassName("systemMainMenu");
+            for (let i = 0; i < actionButton.length; i++) {
+                actionButton[i].addEventListener('click', assembleData, false);
+            }
+
+            var actionButton2 = document.getElementsByClassName("systemB5MainMenu"); 
+            for (let i = 0; i < actionButton2.length; i++) {
+                actionButton2[i].addEventListener('click', assembleDataForB5, false);
+            }
+
+            function assembleData() {
+                var authorizedID = $("#authorizedIDX").val();
+                let csrfName = "_csrf";
+                let csrfValue = "d628fedd-9b39-42f5-9bac-764c0647aa94";
+                var dataText = "verifyMenu=true&authorizedID=" + authorizedID + "&" + csrfName + '=' + csrfValue + "&nocache=@(new Date().getTime())"
+                let url = this.dataset.url;
+                ajaxCall(url, dataText);
+            }
+
+            function assembleDataForB5() {
+                var authorizedID = $("#authorizedIDX").val();
+                let csrfName = "_csrf";
+                let csrfValue = "d628fedd-9b39-42f5-9bac-764c0647aa94";
+                var dataText = "verifyMenu=true&authorizedID=" + authorizedID +"&"+ csrfName + '=' + csrfValue+"&nocache=@(new Date().getTime())"
+                let url = this.dataset.url;
+                ajaxB5Call(url, dataText);
+            }
+
+            /*]]>*/
+        </script>
+
+
+    
+                                </div>
+                            </div>
+                        </div>
+                        <script type="text/javascript" src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/menu.js.download"></script>
+                    
+                </div>
+
+                
+                
+
+        
+    
+            <div class="row noshow" id="popup" style="cursor: default;">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="h6 fw-bold">Loading... Please Wait</span>
+                    </div>
+                    <div class="card-body">
+                        <img src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/ajax-loader_bert.gif" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div><div class="row noshow" id="popup" style="cursor: default;">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="h6 fw-bold">Loading... Please Wait</span>
+                    </div>
+                    <div class="card-body">
+                        <img src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/ajax-loader_bert.gif" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div></div>
+    </div>
+    <div class="row">
+        <div class="col-12" id="messageBox">
+
+        </div>
+    </div>
+</div>
+
+
+
+        <div class="modal" id="myModalFooter" role="dialog">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-bs-dismiss="modal">×</button>
+                        <h4 class="modal-title text-primary">Sorry !!!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-danger"> This page is under Construction !!! Please try later</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="modal b3ModalLayer" id="accessDeniedModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-sm b3ModalLayer">
+                <div class="modal-content b3ModalLayer">
+                    <div class="modal-header">
+                        <h4 class="modal-title text-primary" id="staticBackdropLabel">Sorry !!!</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h3 class="text-danger"> Access Denied</h3>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script type="text/javascript" src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/1(4)"></script> <!--moment.js -->
+        <script type="text/javascript" src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/2(2)"></script> <!-- jquery hotkey-->
+        <script type="text/javascript" src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/3"></script> <!--  block ui -->
+        <script type="text/javascript" src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/4"></script> <!--  jquery ui -->
+        <script type="text/javascript" src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/3(1)"></script> <!-- bootstrap.bundle min 5.0.1 -->
+        <script type="text/javascript" src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/1(5)"></script> <!-- bootstrapvalidator.js -->
+        <script type="text/javascript" src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/vit-custom.js.download"></script>
+        <script type="text/javascript" src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/pdf.js.download"></script>
+        <script type="text/javascript" src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/CustomDatePicker.js.download"></script>
+        <script type="text/javascript" src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/CustomDateTimePicker.js.download"></script>
+        <script type="text/javascript" src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/CustomTimePicker.js.download"></script>
+        <script type="text/javascript" src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/multiselect.js.download"></script>
+        <script type="text/javascript" src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/CustomMonthYearPicker.js.download"></script>
+        <script type="text/javascript" src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/PostDownload.js.download"></script>
+        <script type="text/javascript" src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/custom-bootstrap.js.download"></script>
+        <script type="text/javascript" src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/vtop-validation.js.download"></script>
+        <script type="text/javascript" src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/validate2.js.download"></script>
+        <script type="text/javascript" src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/app.js.download"></script>
+
+        <script>
+            /*<![CDATA[*/
+
+            function blockGUI() {
+                $.blockUI({ message: $("#popup") });
+            }
+
+            function unblockGUI() {
+                $.unblockUI();
+            }
+
+
+            $(document).ready(function () {
+                var offsetHeight = document.getElementById('vtopHeader').offsetHeight;
+                document.body.style.paddingTop = offsetHeight + 'px';
+                const historyBtn = document.getElementById("historyBtn");
+                const historyBtn1 = document.getElementById("historyBtn1");
+                historyBtn.addEventListener("click", showHistory);
+                historyBtn1.addEventListener("click", showHistory);
+            });
+
+
+            function showHistory() {
+                let csrfName = "_csrf";
+                let csrfValue = "d628fedd-9b39-42f5-9bac-764c0647aa94";
+                let id ="100243";
+                let params = "authorizedID=" + id + "&" + csrfName + "=" + csrfValue + "&x=" + now.toUTCString();
+                ajaxB5Call("show/login/history", params, "b5-pagewrapper");
+                historyBtn1.addEventListener("click", showHistory);
+            }
+
+            function vtopDownload(urlText, dataToSend) {
+
+                var params = null;
+                var csrfName = "_csrf";
+                var csrfValue = "d628fedd-9b39-42f5-9bac-764c0647aa94";
+                var id ="100243";
+                var now = new Date();
+                if (dataToSend === 'null' || dataToSend === undefined || dataToSend === null || dataToSend === '') {
+                    params = "authorizedID=" + id + "&" + csrfName + "=" + csrfValue + "&x=" + now.toUTCString();
+                } else {
+                    params = dataToSend + "&" + csrfName + "=" + csrfValue + "&authorizedID=" + id + "&x=" + now.toUTCString();
+                }
+
+                window.open(urlText + '?' + params);
+                $.unblockUI();
+            }
+
+
+            history.pushState(null, null, document.URL);
+            window.addEventListener('popstate', function () {
+                history.pushState(null, null, document.URL);
+            });
+
+
+            /*]]>*/
+        </script>
+
+    
+
+
+
+        <div class="modal fade" id="confirmBox" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+            <div class="modal-dialog modal-dialog-centered  modal-dialog-scrollable " id="confirmModal">
+                <div class="modal-content">
+
+                    <div class="modal-header py-1" id="boxHeader">
+
+                        <span class="modal-title text-light fs-5" id="boxTitle">Please Note !!!</span>
+                        <button type="button" class="btn-close text-light" data-bs-dismiss="modal" id="clsBtn" aria-label="Close"></button>
+
+                    </div>
+
+                    <div class="modal-body" id="ccbModalBody">
+
+                        <div class="d-flex flex-column w-auto">
+                            <div class="mx-auto">
+                                <img src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/ajax-loader_bert.gif" id="progressGIF" class="img-fluid">
+                            </div>
+                            <div id="confrimTextArea" class="d-flex">
+                                <div class="mx-2">
+                                    <i id="tickIcon" class="bi bi-check2-circle fs-1 text-success fw-bold"></i>
+                                    <i id="errorIcon" class="bi bi-x-octagon fs-1 text-danger fw-bold"></i>
+                                </div>
+                                <span id="boxMessage" class="align-self-center"></span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer py-1 d-flex" id="boxFooter">
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-end">
+                            <button class="btn btn-sm btn-danger me-md-2" id="cancelButton" data-callback="" type="button"></button>
+                            <button class="btn btn-sm btn-success" id="confirmButton" type="button"></button>
+                            <button type="button" id="okButton" data-bs-dismiss="modal" class="btn btn-sm btn-danger invisible disabled" aria-label="Close">Ok</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            /*<![CDATA[*/
+
+            const confirmModal = document.getElementById('confirmBox');
+
+            if (confirmModal) {
+
+                confirmModal.addEventListener('show.bs.modal', event => {
+
+                    document.getElementById('tickIcon').classList.add("d-none");
+                    document.getElementById('errorIcon').classList.add("d-none");
+                    document.getElementById("okButton").classList.add("invisible", "disabled");
+                    document.getElementById('boxMessage').classList.remove("d-none");
+
+                });
+
+                confirmModal.addEventListener('hide.bs.modal', event => {
+                    const modalTitle = document.getElementById('confirmModal');
+                    modalTitle.classList.remove('modal-sm', 'modal-lg', 'modal-xl');
+                });
+            }
+
+
+            class ConfirmBox {
+
+                withParameters(params) {
+
+                    this.paramsdefined = true;
+                    this.message = params.message || "Are you Sure ?";
+                    this.title = params.title || "Confirm";
+                    this.confirmBtnText = params.confirmBtnText || "Yes";
+                    this.cancelBtnText = params.cancelBtnText || "No";
+                    this.action = params.action;
+                    this.submitTo = params.submitTo;
+                    this.onError = params.onError;
+                    this.onSuccess = params.onSuccess;
+                    this.keepOpen = params.keepOpen;
+                    this.updateResponseTo = params.updateResponseTo;
+                    this.modalSize = params.modalSize;
+                    this.textCss = params.textCss || ["text-danger", "fw-bold"];
+                    this.headerCss = params.headerCss || ["bg-info", "text-light"];
+                    this.footerCss = params.footerCss || ["bg-light", "text-dark"];
+                    this.errorTextColor = params.errorTextColor || "text-danger";
+                    this.successTextColor = params.successTextColor || "text-success";
+                    this.textMessage = params.textMessage || '';
+                    this.onClose = params.onClose || null;
+                    this.clearCustomClose = params.onClose;
+
+                    this.modalBox = new bootstrap.Modal('#confirmBox');
+
+                    this.headerCss.forEach(element => {
+                        document.getElementById('boxHeader').classList.add(element);
+                    });
+
+                    this.footerCss.forEach(element => {
+                        document.getElementById('boxFooter').classList.add(element);
+                    });
+
+                    this.textCss.forEach(element => {
+                        document.getElementById('boxMessage').classList.add(element);
+                    });
+
+                    document.getElementById('confirmModal').classList.add(params.modalSize);
+                    document.getElementById('confirmButton').textContent = this.confirmBtnText;
+                    document.getElementById('boxTitle').innerHTML = this.title;
+                    document.getElementById('boxMessage').innerHTML = this.message;
+                    document.getElementById("cancelButton").textContent = this.cancelBtnText
+
+                    if (this.onClose !== null) {
+                        document.getElementById("cancelButton").addEventListener('click', this.onClose);
+                        document.getElementById("okButton").addEventListener('click', this.onClose);
+                        document.getElementById("clsBtn").addEventListener('click', this.onClose);
+                    }
+
+                    return this;
+                }
+
+
+                call() {
+
+                    this.confirmBoxShown = false;
+                    this.fetchCall(this.submitTo).then((response) => {
+                        this.updateResponse(response);
+                    }).catch(function (err) {
+                        console.log(err);
+                    });
+                }
+
+                connectServer() {
+                    if (this.paramsdefined !== undefined) {
+                        this.confirmBoxShown = true;
+                        this.keepOpen = false;
+                        this.modalBox.show()
+                        this.setProgressBar();
+                        let timeoutID;
+                        let closeFunc = function () {
+                            bootstrap.Modal.getInstance('#confirmBox').hide();
+                        }
+                        this.fetchCall(this.submitTo).then((response) => {
+                            timeoutID = setTimeout(closeFunc, 500);
+                            this.updateResponse(response);
+                        }).catch(error => {
+                            console.log(error);
+                            timeoutID = setTimeout(closeFunc, 500);
+                        });
+                    }
+                }
+
+                showText() {
+
+                    if (this.paramsdefined !== undefined) {
+                        document.getElementById('progressGIF').classList.add("d-none");
+                        document.getElementById("confirmButton").classList.add("invisible", "disabled");
+                        document.getElementById("cancelButton").classList.add("invisible", "disabled");
+                        document.getElementById("boxMessage").innerHTML = this.textMessage;
+                        this.modalBox.show();
+                        document.getElementById("okButton").classList.remove("invisible", "disabled");
+                    } else {
+                        throw new Error("Parameters undefined");
+                    }
+                }
+
+                show() {
+
+                    if (this.paramsdefined !== undefined) {
+
+                        this.confirmBoxShown = true;
+                        this.modalBox.show();
+
+                        this.setAlert();
+
+                        let promise = new Promise((resolve, reject) => {
+                            let confirmBtn = document.getElementById("confirmButton");
+                            confirmBtn.addEventListener('dblclick', function () { return false; });
+                            confirmBtn.addEventListener('click', function (event) {
+                                let currentObject = event.target;
+                                resolve(true);
+                            });
+                            document.getElementById("cancelButton").addEventListener('click', function () {
+                                bootstrap.Modal.getInstance('#confirmBox').hide();
+                                reject(false);
+                            });
+                        });
+                        this.serverCall(promise);
+
+                    } else {
+                        throw new Error("Parameters undefined");
+                    }
+                }
+
+                serverCall(promise) {
+
+                    promise.then((result) => {
+                        if (this.submitTo !== undefined) {
+                            this.setProgressBar();
+                            this.fetchCall(this.submitTo).then((response) => {
+                                this.updateResponse(response);
+                                this.closeModal();
+                            }).catch(function (err) {
+                                console.log(err);
+                            });
+                        } else {
+                            if (this.action !== undefined) {
+                                this.action();
+                                this.closeModal();
+                            }
+                        }
+                    }).catch(error => {
+                        document.getElementById("cancelButton").removeEventListener('click', this.onClose);
+                        document.getElementById("okButton").removeEventListener('click', this.onClose);
+                        document.getElementById("clsBtn").removeEventListener('click', this.onClose);
+                    });
+                }
+
+                async fetchCall(params) {
+
+                    if (this.paramsdefined == undefined || params.url == undefined) {
+                        throw " Required parameters missing";
+                    }
+
+                    let data;
+                    let options = new Object();
+                    options.method = "POST";
+                    if (params.dataform !== undefined) {
+                        data = new FormData(document.getElementById(params.dataform));
+                    } else {
+                        if (params.data !== undefined) {
+                            data = encodeURI(params.data);
+                            options.headers = { 'Content-Type': 'application/x-www-form-urlencoded' };
+                        }
+                    }
+                    if (data !== undefined) {
+                        options.body = data;
+                    }
+                    return await fetch(params.url, options);
+                }
+
+                async updateResponse(response) {
+
+                    if (response.status === 200) {
+
+                        if (this.confirmBoxShown) {
+
+                            var isError = response.headers.get('error');
+                            var message = response.headers.get('message');
+                            if (isError && this.onError !== undefined) {
+                                this.onError(message);
+                            }
+
+                            if (this.keepOpen) {
+                                if (isError) {
+                                    this.setError();
+                                    document.getElementById('boxMessage').innerHTML = message;
+                                } else {
+                                    this.setSuccess();
+                                    document.getElementById('boxMessage').innerHTML = message;
+                                }
+                            }
+                        }
+
+                        let reqTarget = response.headers.get('wrapper');
+                        if (reqTarget === 'null' || reqTarget === undefined
+                            || reqTarget === null || reqTarget === '') {
+                            reqTarget = this.updateResponseTo;
+                        }
+                        if (reqTarget !== undefined) {
+                            let html = await response.text();
+                            let division = document.getElementById(reqTarget);
+                            division.innerHTML = html;
+                            let scripts = division.getElementsByTagName('script');
+                            for (let ix = 0; ix < scripts.length; ix++) {
+                                eval(scripts[ix].text);
+                            }
+                        }
+                        if (this.onSuccess !== undefined) {
+                            this.onSuccess(response);
+                        }
+                    } else {
+
+                        if (this.onError !== undefined) {
+                            response.text().then(text => { throw new Error(text) }).catch(error => {
+                                this.onError(error);
+                            });
+
+                        } else if (this.confirmBoxShown) {
+                            this.keepOpen = true;
+                            response.text().then(text => { throw new Error(text) }).catch(error => {
+                                document.getElementById('ccbModalBody').classList.add("text-danger", "fw-bold", "h5");
+                                document.getElementById('ccbModalBody').innerHTML = response.status + " !!! " + error;
+                            });
+
+                        } else {
+                            response.text().then(text => { throw new Error(text) }).catch(error => { console.log(error); });
+                        }
+                    }
+                }
+
+                closeModal() {
+                    document.getElementById('progressGIF').classList.add("d-none");
+                    if (this.confirmBoxShown && !this.keepOpen) {
+                        this.modalBox.hide();
+                    } else {
+                        document.getElementById("okButton").classList.remove("invisible", "disabled");;
+                    }
+                    if (this.onClose !== null || this.onClose !== undefined) {
+                        this.onClose();
+                        document.getElementById("cancelButton").removeEventListener('click', this.onClose);
+                        document.getElementById("okButton").removeEventListener('click', this.onClose);
+                        document.getElementById("clsBtn").removeEventListener('click', this.onClose);
+                    }
+                }
+
+                setAlert() {
+
+                    document.getElementById('progressGIF').classList.add("d-none");
+                    document.getElementById("confirmButton").classList.remove("invisible", "disabled");
+                    document.getElementById("cancelButton").classList.remove("invisible", "disabled");
+                    document.getElementById('boxMessage').classList.remove("d-none");
+                }
+
+                setProgressBar() {
+                    document.getElementById('progressGIF').classList.remove("d-none");
+                    document.getElementById("confirmButton").classList.add("invisible", "disabled");
+                    document.getElementById("cancelButton").classList.add("invisible", "disabled");
+                    document.getElementById('boxMessage').classList.add("d-none");
+                }
+
+                setError() {
+                    document.getElementById('progressGIF').classList.add("d-none");
+                    document.getElementById('boxMessage').classList.remove("d-none");
+                    document.getElementById('errorIcon').classList.remove("d-none");
+                    document.getElementById('boxMessage').classList.add("errorTextColor");
+                    document.getElementById('tickIcon').classList.add("d-none");
+                }
+
+                setSuccess() {
+                    document.getElementById('progressGIF').classList.add("d-none");
+                    document.getElementById('boxMessage').classList.remove("d-none");
+                    document.getElementById('tickIcon').classList.remove("d-none");
+                    document.getElementById('boxMessage').classList.add("successTextColor");
+                    document.getElementById('errorIcon').classList.add("d-none");
+                }
+
+            }
+
+
+            /*]]>*/
+        </script>
+
+
+    
+
+<!-- <th:block th:if="${!#lists.isEmpty(nms)}" th:insert="Notifications :: content"></th:block>
+ -->
+
+
+<div id="give-freely-root-camppjleccjaphfdbohjdohecfnoikec" class="give-freely-root" data-extension-id="camppjleccjaphfdbohjdohecfnoikec" data-extension-name="Merlin AI" style="display: block;"><template shadowrootmode="open"><style>
+  :host {
+    all: initial;
+  }
+
+  .gf-scroll-remove::-webkit-scrollbar {
+    border-radius-bottom-right: 15px;
+  }
+
+  button {
+    cursor: pointer;
+    transition: transform 0.1s ease;
+  }
+
+  button:active {
+    transform: scale(0.98);
+  }
+
+  .give-freely-close-button:hover {
+    opacity: 0.7;
+  }
+
+  input[type="radio"] {
+    margin-right: 8px;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid #e5e5e5;
+    margin: 1em 0;
+  }
+
+  dialog::backdrop  {
+    background-color: rgba(180, 180, 180, 0.6);
+  }
+
+  dialog.backdrop-hidden::backdrop  {
+    background-color: transparent;
+  }
+</style><div><div class="gf-app"></div></div></template></div><div id="goog-gt-tt" class="VIpgJd-yAWNEb-L7lbkb skiptranslate" style="display: none; border-radius: 12px; margin: 0 0 0 -23px; padding: 0; font-family: 'Google Sans', Arial, sans-serif;" data-id=""><div id="goog-gt-vt" class="VIpgJd-yAWNEb-hvhgNd"><div class="VIpgJd-yAWNEb-hvhgNd-Ud7fr"><img src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/24px.svg" width="24" height="24" alt=""><div class=" VIpgJd-yAWNEb-hvhgNd-IuizWc-i3jM8c " dir="ltr">Original text</div></div><div class="VIpgJd-yAWNEb-hvhgNd-k77Iif"><div id="goog-gt-original-text" class="VIpgJd-yAWNEb-nVMfcd-fmcmS VIpgJd-yAWNEb-hvhgNd-axAV1"></div></div><div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid ltr"><div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid-B7I4Od ltr" dir="ltr"><div class="VIpgJd-yAWNEb-hvhgNd-UTujCb">Rate this translation</div><div class="VIpgJd-yAWNEb-hvhgNd-eO9mKe">Your feedback will be used to help improve Google Translate</div></div><div class="VIpgJd-yAWNEb-hvhgNd-xgov5 ltr"><button id="goog-gt-thumbUpButton" type="button" class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="Good translation" aria-label="Good translation" aria-pressed="false"><span id="goog-gt-thumbUpIcon"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7H2v13h16c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM7 18H4V9h3v9zm14-7l-3 7H9V8l4.34-4.34L12 9h9v2z"></path></svg></span><span id="goog-gt-thumbUpIconFilled"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7v13h11c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM5 7H1v13h4V7z"></path></svg></span></button><button id="goog-gt-thumbDownButton" type="button" class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="Poor translation" aria-label="Poor translation" aria-pressed="false"><span id="goog-gt-thumbDownIcon"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7h5V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zM17 6h3v9h-3V6zM3 13l3-7h9v10l-4.34 4.34L12 15H3v-2z"></path></svg></span><span id="goog-gt-thumbDownIconFilled"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zm16 0h4V4h-4v13z"></path></svg></span></button></div></div><div id="goog-gt-votingHiddenPane" class="VIpgJd-yAWNEb-hvhgNd-aXYTce"><form id="goog-gt-votingForm" action="https://translate.googleapis.com/translate_voting?client=te" method="post" target="votingFrame" class="VIpgJd-yAWNEb-hvhgNd-aXYTce"><input type="text" name="sl" id="goog-gt-votingInputSrcLang"><input type="text" name="tl" id="goog-gt-votingInputTrgLang"><input type="text" name="query" id="goog-gt-votingInputSrcText"><input type="text" name="gtrans" id="goog-gt-votingInputTrgText"><input type="text" name="vote" id="goog-gt-votingInputVote"></form><iframe name="votingFrame" frameborder="0" src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/saved_resource.html"></iframe></div></div></div><merlin-floating-cta style="overflow: visible; position: relative; width: 0px; height: 0px; display: block;"><template shadowrootmode="open">
+<!-- saved from url=(0041)https://vtop.vitbhopal.ac.in/vtop/content -->
+<html style="position: absolute; top: 0px; left: 0px;"><head><style>/* WXT Shadow Root Reset */ :host{all:initial !important;}
+.merlin-cta-root{z-index:2147483600;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;touch-action:none;cursor:grab;flex-direction:column;align-items:flex-end;gap:6px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;display:flex;position:fixed;top:75vh;right:0}.merlin-cta-root:active{cursor:grabbing}.merlin-cta-pill{all:unset;corner-shape:squircle;cursor:pointer;opacity:.55;transform-origin:100%;background:#fff;border-radius:10px 0 0 10px;align-items:center;gap:0;padding:8px;transition-property:opacity,box-shadow,scale;transition-duration:.35s;transition-timing-function:ease;display:flex;position:relative;box-shadow:-3px 2px 12px #00000014,0 1px 3px #0000000f,inset 0 0 0 1px #0000000a}.merlin-cta-pill:hover{opacity:1;box-shadow:-5px 4px 20px #0000001f,0 2px 6px #00000014,inset 0 0 0 1px #0000000f}.merlin-cta-pill:active{scale:.96}.merlin-cta-pill img{pointer-events:none;outline-offset:-1px;border-radius:1px;outline:1px solid #0000001a;flex-shrink:0;width:24px;height:24px}.merlin-cta-shortcut{letter-spacing:.08em;color:#334155;white-space:nowrap;-webkit-user-select:none;user-select:none;opacity:0;max-width:0;font-size:13px;font-weight:600;transition-property:max-width,opacity,margin-left;transition-duration:.35s;transition-timing-function:ease;overflow:hidden}.merlin-cta-root:hover .merlin-cta-shortcut{opacity:1;max-width:80px;margin-left:8px}.merlin-cta-dismiss{all:unset;color:#64748b;cursor:pointer;opacity:0;pointer-events:none;background:#f1f5f9;border-radius:50%;justify-content:center;align-items:center;width:18px;height:18px;font-size:10px;transition-property:opacity,background-color,color,box-shadow;transition-duration:.15s;transition-timing-function:cubic-bezier(.2,0,0,1);display:flex;position:absolute;top:-7px;left:-7px;box-shadow:0 1px 4px #0000001a,0 0 0 1px #0000000f}.merlin-cta-dismiss:before{content:"";position:absolute;inset:-11px}.merlin-cta-root:hover .merlin-cta-dismiss{opacity:1;pointer-events:auto}.merlin-cta-dismiss:hover{opacity:.8}.merlin-cta-dismiss:active{transform:scale(.96)}[data-tooltip]{position:relative}[data-tooltip]:after{content:attr(data-tooltip);corner-shape:squircle;color:#1e293b;white-space:nowrap;pointer-events:none;opacity:0;background:#fff;border-radius:6px;padding:5px 10px;font-size:12px;font-weight:500;transition-property:opacity;transition-duration:.15s;transition-timing-function:ease;position:absolute;top:50%;right:calc(100% + 10px);transform:translateY(-50%);box-shadow:0 2px 8px #00000026}[data-tooltip]:hover:after{opacity:1}.merlin-cta-actions{opacity:0;pointer-events:none;flex-direction:column;align-items:flex-end;gap:2px;transition-property:opacity,transform;transition-duration:.3s;transition-timing-function:ease;display:flex;transform:translate(8px)}.merlin-cta-actions.visible{opacity:1;pointer-events:auto;transform:translate(0)}.merlin-cta-action-btn{all:unset;corner-shape:squircle;color:#475569;cursor:pointer;transform-origin:100%;background:#fff;border-radius:10px 0 0 10px;justify-content:center;align-items:center;width:36px;height:36px;transition-property:background-color,color,box-shadow,scale;transition-duration:.15s;transition-timing-function:cubic-bezier(.2,0,0,1);display:flex;box-shadow:-2px 1px 8px #0000000f,0 1px 2px #0000000a,inset 0 0 0 1px #0000000a}.merlin-cta-action-btn:hover{color:#1e293b;background:#f1f5f9;box-shadow:-3px 2px 12px #0000001a,0 1px 3px #0000000f,inset 0 0 0 1px #0000000f}.merlin-cta-action-btn:active{scale:.96}@media (prefers-color-scheme:dark){.merlin-cta-pill{background:#1c1c1e;box-shadow:-3px 2px 14px #00000080,0 1px 4px #0000004d,inset 0 0 0 1px #ffffff0f}.merlin-cta-pill:hover{box-shadow:-5px 4px 24px #0009,0 2px 8px #0006,inset 0 0 0 1px #ffffff14}.merlin-cta-pill img{outline-color:#ffffff1a}.merlin-cta-shortcut{color:#e2e8f0}.merlin-cta-dismiss{color:#a1a1aa;background:#27272a;box-shadow:0 1px 4px #0000004d,0 0 0 1px #ffffff14}.merlin-cta-dismiss:hover{opacity:.8}.merlin-cta-action-btn{color:#a1a1aa;background:#1c1c1e;box-shadow:-2px 1px 8px #0006,0 1px 2px #0003,inset 0 0 0 1px #ffffff0f}.merlin-cta-action-btn:hover{color:#e2e8f0;background:#27272a;box-shadow:-3px 2px 12px #00000080,0 1px 3px #0000004d,inset 0 0 0 1px #ffffff14}[data-tooltip]:after{color:#1e293b;background:#f8fafc;box-shadow:0 2px 8px #0000004d}}
+/*$vite$:1*/</style></head><body><div><div class="merlin-cta-root"><div class="merlin-cta-actions "><button class="merlin-cta-action-btn" data-tooltip="Chat with page"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></button></div><button class="merlin-cta-pill" data-tooltip="Open Merlin"><span class="merlin-cta-dismiss">✕</span><img alt="Merlin" draggable="false" src="chrome-extension://camppjleccjaphfdbohjdohecfnoikec/logo-64x64.png"><span class="merlin-cta-shortcut">Ctrl+M</span></button><div class="merlin-cta-actions "><button class="merlin-cta-action-btn" data-tooltip="Settings"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg></button></div></div></div></body></html></template></merlin-floating-cta><div id="goog-gt-tt" class="VIpgJd-yAWNEb-L7lbkb skiptranslate" style="display: none; border-radius: 12px; margin: 0 0 0 -23px; padding: 0; font-family: 'Google Sans', Arial, sans-serif;" data-id=""><div id="goog-gt-vt" class="VIpgJd-yAWNEb-hvhgNd"><div class="VIpgJd-yAWNEb-hvhgNd-Ud7fr"><img src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/24px.svg" width="24" height="24" alt=""><div class=" VIpgJd-yAWNEb-hvhgNd-IuizWc-i3jM8c " dir="ltr">undefined</div></div><div class="VIpgJd-yAWNEb-hvhgNd-k77Iif"><div id="goog-gt-original-text" class="VIpgJd-yAWNEb-nVMfcd-fmcmS VIpgJd-yAWNEb-hvhgNd-axAV1"></div></div><div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid ltr"><div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid-B7I4Od ltr" dir="ltr"><div class="VIpgJd-yAWNEb-hvhgNd-UTujCb">undefined</div><div class="VIpgJd-yAWNEb-hvhgNd-eO9mKe">undefined</div></div><div class="VIpgJd-yAWNEb-hvhgNd-xgov5 ltr"><button id="goog-gt-thumbUpButton" type="button" class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="undefined" aria-label="undefined" aria-pressed="false"><span id="goog-gt-thumbUpIcon"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7H2v13h16c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM7 18H4V9h3v9zm14-7l-3 7H9V8l4.34-4.34L12 9h9v2z"></path></svg></span><span id="goog-gt-thumbUpIconFilled"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7v13h11c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM5 7H1v13h4V7z"></path></svg></span></button><button id="goog-gt-thumbDownButton" type="button" class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="undefined" aria-label="undefined" aria-pressed="false"><span id="goog-gt-thumbDownIcon"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7h5V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zM17 6h3v9h-3V6zM3 13l3-7h9v10l-4.34 4.34L12 15H3v-2z"></path></svg></span><span id="goog-gt-thumbDownIconFilled"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zm16 0h4V4h-4v13z"></path></svg></span></button></div></div><div id="goog-gt-votingHiddenPane" class="VIpgJd-yAWNEb-hvhgNd-aXYTce"><form id="goog-gt-votingForm" action="https://translate.googleapis.com/translate_voting?client=te" method="post" target="votingFrame" class="VIpgJd-yAWNEb-hvhgNd-aXYTce"><input type="text" name="sl" id="goog-gt-votingInputSrcLang"><input type="text" name="tl" id="goog-gt-votingInputTrgLang"><input type="text" name="query" id="goog-gt-votingInputSrcText"><input type="text" name="gtrans" id="goog-gt-votingInputTrgText"><input type="text" name="vote" id="goog-gt-votingInputVote"></form><iframe name="votingFrame" frameborder="0" src="./VIT Bhopal - VTOP Pyhton Date of lecture_files/saved_resource(1).html"></iframe></div></div></div><div class="VIpgJd-ZVi9od-aZ2wEe-wOHMyf"><div class="VIpgJd-ZVi9od-aZ2wEe-OiiCO"><svg xmlns="http://www.w3.org/2000/svg" class="VIpgJd-ZVi9od-aZ2wEe" width="96px" height="96px" viewBox="0 0 66 66"><circle class="VIpgJd-ZVi9od-aZ2wEe-Jt5cK" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div><div class="VIpgJd-ZVi9od-aZ2wEe-wOHMyf"><div class="VIpgJd-ZVi9od-aZ2wEe-OiiCO"><svg xmlns="http://www.w3.org/2000/svg" class="VIpgJd-ZVi9od-aZ2wEe" width="96px" height="96px" viewBox="0 0 66 66"><circle class="VIpgJd-ZVi9od-aZ2wEe-Jt5cK" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html>

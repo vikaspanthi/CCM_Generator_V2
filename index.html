@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CCM Generator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="errBar" class="err" hidden></div>
+<header class="top">
+  <div class="wrap">
+    <h1>CCM Generator</h1>
+    <p>Enter the syllabus, number of lectures and slot. Get a CALTech Course Manual (.docx) with a session-by-session plan. Everything runs in your browser; nothing is uploaded.</p>
+    <div class="bar">
+      <button class="btn" id="btnSample" type="button">Load sample (Python)</button>
+      <button class="btn" id="btnSave" type="button">Save as JSON</button>
+      <label class="btn" for="fileLoad">Load JSON</label><input type="file" id="fileLoad" accept=".json,application/json" hidden>
+      <button class="btn ghost" id="btnReset" type="button">Clear form</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section class="card" id="s0">
+  <h2><span>0</span> Start from the syllabus PDF</h2>
+  <p class="hint">Upload the course syllabus (one PDF). The app reads the course code, title, objectives, outcomes, units with hours, books and suggested experiments and fills the form below. Check everything afterwards; PDFs differ and the unit → CO links are a best guess.</p>
+  <div class="bar">
+    <label class="btn primary" for="fileSyllabus">Upload syllabus PDF</label><input type="file" id="fileSyllabus" accept=".pdf,application/pdf" hidden>
+    <span id="syllMsg" role="status"></span>
+  </div>
+  <label id="courseSelWrap" class="mt" hidden>Courses found in this PDF<select id="courseSel"></select></label>
+  <details class="paste"><summary>PDF not reading? Paste the syllabus text instead</summary>
+    <textarea id="pasteText" rows="8" placeholder="Copy the text from the PDF and paste it here"></textarea>
+    <div class="bar mt"><button class="btn" id="btnPasteParse" type="button">Read pasted text</button></div>
+  </details>
+</section>
+
+<section class="card" id="s1">
+  <h2><span>1</span> Course details</h2>
+  <div class="grid g3">
+    <label>Course code<input data-k="course.code" placeholder="CSE3011"></label>
+    <label class="span2">Course title<input data-k="course.title" placeholder="Python Programming"></label>
+    <label>Course type<input data-k="course.type" placeholder="LP"></label>
+    <label>Credits<input data-k="course.credits" type="number" min="0" step="0.5"></label>
+    <label>Pre-requisite<input data-k="course.prereq" placeholder="NIL"></label>
+    <label>Slot<input data-k="course.slot" placeholder="F11+F12"></label>
+    <label>Class number<input data-k="course.classNo" placeholder="optional"></label>
+    <label>Semester<input data-k="course.semester" placeholder="Interim Semester 2026 - 2027"></label>
+    <label>Faculty name<input data-k="course.faculty"></label>
+    <label>Designation<input data-k="course.designation"></label>
+    <label>School / Department<input data-k="course.school"></label>
+    <label>Programme<input data-k="course.programme" placeholder="B.Tech."></label>
+    <label>Manual title prefix<input data-k="course.manualTitle" placeholder="CALTech"></label>
+    <label class="check"><input type="checkbox" data-k="course.useLogo"> Show VIT Bhopal logo on cover</label>
+  </div>
+</section>
+
+<section class="card" id="s2">
+  <h2><span>2</span> Syllabus</h2>
+  <div class="grid g2">
+    <label>Course objectives <small>(one per line)</small><textarea data-k="objectives" data-type="lines" rows="4"></textarea></label>
+    <label>Course outcomes <small>(one per line; CO1, CO2… are numbered automatically)</small><textarea data-k="cos" data-type="cos" rows="4"></textarea></label>
+  </div>
+  <h3>Units / modules</h3>
+  <p class="hint">Put topics separated by commas, semicolons or new lines. Each topic becomes a candidate for a lecture; commas inside brackets are kept together. Lectures are shared out between units in proportion to their hours.</p>
+  <div id="units"></div>
+  <button class="btn" id="addUnit" type="button">+ Add unit</button>
+  <div class="grid g3 mt">
+    <label>Guest lecture hours<input data-k="guestHours" type="number" min="0"></label>
+    <label class="span2">Suggested tools<input data-k="tools"></label>
+  </div>
+  <div class="grid g2">
+    <label>Text books <small>(one per line)</small><textarea data-k="textBooks" data-type="lines" rows="3"></textarea></label>
+    <label>Reference books <small>(one per line)</small><textarea data-k="refBooks" data-type="lines" rows="3"></textarea></label>
+  </div>
+  <div class="grid g3">
+    <label>Recommended by BoS on<input data-k="bos"></label>
+    <label>Approved by Academic Council on<input data-k="approval"></label>
+    <label>Compiled by<input data-k="compiledBy"></label>
+  </div>
+  <label>Programme specific outcomes (PSOs) <small>(optional, one per line)</small><textarea data-k="psos" data-type="lines" rows="2"></textarea></label>
+  <label>Suggested experiments / lab exercises <small>(optional, one per line; spread across the sessions)</small><textarea data-k="experiments" data-type="lines" rows="5"></textarea></label>
+</section>
+
+<section class="card" id="s3">
+  <h2><span>3</span> Classes, lectures and schedule</h2>
+  <div class="classes" id="calBox">
+    <h3>Academic calendar <small>(recommended; upload the same kind of PDF every term)</small></h3>
+    <p class="hint">Upload the VIT Bhopal Academic Calendar PDF (it may hold both Fall and Winter). Pick the semester. Sessions are then dated from the <b>first instructional day</b> to the <b>last instructional day</b>, skipping holidays, CAT weeks and fests, and counting Saturday instructional days with the weekday timetable they follow. Dates you import from VTOP are checked against it.</p>
+    <div class="bar">
+      <label class="btn" for="fileCalendar">Upload academic calendar PDF</label><input type="file" id="fileCalendar" accept=".pdf,application/pdf" hidden>
+      <button class="btn ghost" id="btnCalClear" type="button" hidden>Remove calendar</button>
+      <span id="calMsg" role="status"></span>
+    </div>
+    <label id="termSelWrap" class="mt" hidden>Semester<select id="termSel"></select></label>
+    <div class="grid g2 mt" id="calOpts" hidden>
+      <label class="check"><input type="checkbox" data-k="calendar.sectionalWorks"> Classes run on “Sectional Holidays” (they apply to some students only)</label>
+      <label class="check"><input type="checkbox" data-k="calendar.catOff"> No regular classes in CAT-1 / CAT-2 weeks</label>
+    </div>
+    <div id="calSummary" class="mapwrap"></div>
+    <details class="paste"><summary>Calendar PDF not reading? Paste its text</summary>
+      <textarea id="calPaste" rows="6" placeholder="Copy the text from the calendar PDF and paste it here"></textarea>
+      <div class="bar mt"><button class="btn" id="btnCalPaste" type="button">Read pasted calendar</button></div>
+    </details>
+  </div>
+  <div class="classes">
+    <h3>Class list <small>(optional, for class-wise CCMs)</small></h3>
+    <p class="hint">Upload the VTOP “Date of lecture” page saved as HTML (one file per class), or an Excel / CSV sheet with the columns <b>Class ID</b> and <b>Date</b> (optional: <b>Slot</b>, <b>Venue</b>). The dates become the session dates, and the number of dates sets the number of sessions for that class.</p>
+    <div class="bar">
+      <label class="btn" for="fileClasses">Upload class files</label><input type="file" id="fileClasses" accept=".html,.htm,.xlsx,.csv,.tsv,.txt" multiple hidden>
+      <button class="btn ghost" id="btnTemplate" type="button">Download CSV template</button>
+      <button class="btn ghost" id="btnClearClasses" type="button" hidden>Remove all classes</button>
+    </div>
+    <div id="classList" class="mapwrap"></div>
+  </div>
+  <h3>Schedule without a class list</h3>
+  <div class="grid g3">
+    <label>Total number of sessions (lectures)<input data-k="lectures" type="number" min="1" max="120"></label>
+    <label>…of which guest lectures<input data-k="guestLectures" type="number" min="0" max="10"></label>
+    <label>Guest lecture title<input data-k="guestTitle"></label>
+    <label>Venue<input data-k="venue"></label>
+    <label>First class date <small>(optional; with a calendar it defaults to the first instructional day)</small><input data-k="startDate" type="date"></label>
+    <fieldset class="days"><legend>Class days <small>(optional)</small></legend>
+      <label><input type="checkbox" class="wd" value="1">Mon</label><label><input type="checkbox" class="wd" value="2">Tue</label><label><input type="checkbox" class="wd" value="3">Wed</label><label><input type="checkbox" class="wd" value="4">Thu</label><label><input type="checkbox" class="wd" value="5">Fri</label><label><input type="checkbox" class="wd" value="6">Sat</label>
+    </fieldset>
+  </div>
+  <label>Holidays to skip <small>(optional; dates as YYYY-MM-DD, comma or line separated)</small><textarea data-k="holidays" data-type="lines" rows="2"></textarea></label>
+</section>
+
+<section class="card" id="s4">
+  <h2><span>4</span> Outcome mapping</h2>
+  <p class="hint">3 = strong, 2 = moderate, 1 = weak, – = none. The values are a starting point; set them to match your course. SO = ABET student outcomes 1–7, PO = NBA programme outcomes.</p>
+  <div class="bar"><button class="btn" id="suggest" type="button">Fill suggested values</button></div>
+  <div id="maps"></div>
+</section>
+
+<section class="card" id="s5">
+  <h2><span>5</span> Generate</h2>
+  <div class="bar">
+    <button class="btn primary" id="btnPlan" type="button">Create session plan</button>
+    <span id="msg" role="status"></span>
+  </div>
+  <div id="planWarn"></div>
+  <div id="plan" hidden>
+    <label id="classSelWrap" hidden>Class<select id="classSel"></select></label>
+    <p class="hint">Review and edit anything below, then download. Changing the sections above and pressing “Create session plan” again replaces your edits here.</p>
+    <div id="sessions"></div>
+    <details class="qp"><summary>Model question paper (starter, edit as needed)</summary><div id="qp"></div></details>
+    <div class="bar mt"><button class="btn primary" id="btnDoc" type="button">Download CCM (.docx)</button><button class="btn" id="btnZip" type="button" hidden>Download all classes (.zip)</button></div>
+  </div>
+</section>
+</main>
+
+<footer class="wrap foot">The CCM is filled into the VIT Bhopal CCM template, so fonts, tables and page layout match it. Contents page numbers are page-reference fields: Word updates them when you open the file (press F9 if they look stale).</footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/template.js"></script>
+<script src="sample.js"></script>
+<script src="planner.js"></script>
+<script src="importers.js"></script>
+<script src="syllabus.js"></script>
+<script src="academic.js"></script>
+<script src="docgen.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
